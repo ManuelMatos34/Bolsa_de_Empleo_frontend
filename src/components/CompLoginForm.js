@@ -35,12 +35,12 @@ const CompLoginForm = () => {
                     </label>
                 </div>
                 <div className="mb-3">
-                    <p className="mb-0">No tienes una cuenta? <a href="/registration">Regístrate aquí</a></p>
+                    <p className="mb-0">No tienes una cuenta? <a href="/compregister">Regístrate aquí</a></p>
                 </div>
                 <div className="mb-3 text-center">
                     <button
                         style={{
-                            width: '100%', backgroundColor: "#014223",
+                            width: '100%', backgroundColor: "#0D4671",
                             border: "none",
                         }}
                         type="button"
