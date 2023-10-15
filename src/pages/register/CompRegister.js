@@ -1,5 +1,5 @@
 import React from 'react'
-import CompRegisterForm from '../../components/CompRegisterForm'
+import CompRegisterForm from '../../components/companies/CompRegisterForm'
 import logo from "../../assets/img/unphu-logo.webp";
 
 const CompRegister = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import CompLoginForm from "../../components/CompLoginForm";
+import CompLoginForm from "../../components/companies/CompLoginForm";
 // import imagen from "../../assets/img/students-1.jpg";
 import logo from "../../assets/img/image.png";
 

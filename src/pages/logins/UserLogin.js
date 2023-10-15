@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/img/image.png";
-import UserLoginForm from "../../components/UserLoginForm";
+import UserLoginForm from "../../components/students/UserLoginForm";
 
 const UserLogin = () => {
     return (
