@@ -1,3 +1,34 @@
 .icon-color {
   color: #0C4770;
 };
+
+/* Estilo del contenedor con desplazamiento */
+.overflow-auto {
+  overflow: auto; /* Agrega una barra de desplazamiento solo si es necesario */
+  max-height: 75vh;
+}
+
+/* Estilo de la barra de desplazamiento en navegadores webkit */
+.overflow-auto::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo del riel de la barra de desplazamiento */
+.overflow-auto::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color del fondo del riel */
+}
+
+/* Estilo del pulgar (barra móvil) de la barra de desplazamiento */
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: #0C4770; /* Color del pulgar */
+}
+
+/* Estilo del pulgar al pasar el mouse sobre la barra de desplazamiento */
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del pulgar al pasar el mouse */
+}
+
+@import 'typeface-roboto';
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
