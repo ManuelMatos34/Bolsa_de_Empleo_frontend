@@ -33,6 +33,11 @@ const Sidebar = () => {
                                     <i className="icon-color fas fa-briefcase mr-2"></i>&nbsp; Ofertas de Empleo
                                 </a>
                             </li>
+                            <li className="nav-item mt-2">
+                                <a className="nav-link d-flex align-items-center" href="/notifications">
+                                    <i className="icon-color fas fa-bell mr-2"></i>&nbsp; Notificaciones
+                                </a>
+                            </li>
                         </div>
                     </ul>
                 </div>

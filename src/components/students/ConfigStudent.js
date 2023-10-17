@@ -1,9 +1,17 @@
 import React from 'react';
 import unphuImage from '../../assets/img/image.png';
+import StudentModal from './modals/StudentModal';
+import DireccionModal from './modals/DireccionModal';
+import ContactModal from './modals/ContactModal';
+import CvModal from './modals/CvModal';
 
 const ConfigStudent = () => {
     return (
         <div className='row'>
+            <StudentModal />  
+            <DireccionModal />  
+            <ContactModal />
+            <CvModal />
             <div className='col-md-3 mt-2'>
                 <div className='card' style={{ height: "81vh" }}>
                     <div className='card-body'>
@@ -26,7 +34,7 @@ const ConfigStudent = () => {
                         <p className="card-subtitle text-muted m-2"><b>Cédula:</b> 123456789</p>
                         <p className="card-subtitle text-muted m-2"><b>Birthday:</b> 01/15/1995</p>
                         <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
-                            <button style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
+                            <button data-bs-toggle="modal" data-bs-target="#staticBackdropStudent" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
                                 <i className="fas fa-cog"></i> {/* Ícono de tuerca */}
                             </button>
                         </div>
@@ -45,7 +53,7 @@ const ConfigStudent = () => {
                                 <p className="card-subtitle text-muted m-2"><b>State:</b> DN</p>
                                 <p className="card-subtitle text-muted m-2"><b>Postal Code:</b> 10101</p>
                                 <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
-                                    <button style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
+                                    <button data-bs-toggle="modal" data-bs-target="#staticBackdropDireccion" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
                                         <i className="fas fa-cog"></i> {/* Ícono de tuerca */}
                                     </button>
                                 </div>
@@ -59,7 +67,7 @@ const ConfigStudent = () => {
                                 <p className="card-subtitle text-muted m-2"><b>Telephone:</b> 809-123-4567</p>
                                 <p className="card-subtitle text-muted m-2"><b>Mobile:</b> 809-987-6543</p>
                                 <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
-                                    <button style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
+                                    <button data-bs-toggle="modal" data-bs-target="#staticBackdropContact" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
                                         <i className="fas fa-cog"></i> {/* Ícono de tuerca */}
                                     </button>
                                 </div>
@@ -132,7 +140,7 @@ const ConfigStudent = () => {
                                 <button style={{ backgroundColor: "#0C4770", border: "none" }} type="button" className="btn btn-primary btn-sm m-1 mt-2">Ver</button>
                                 <button style={{ backgroundColor: "#0C4770", border: "none" }} type="button" className="btn btn-primary btn-sm m-1 mt-2">Descargar</button>
                                 <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
-                                    <button style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
+                                    <button data-bs-toggle="modal" data-bs-target="#staticBackdropCv" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
                                         <i className="fas fa-cog"></i> {/* Ícono de tuerca */}
                                     </button>
                                 </div>

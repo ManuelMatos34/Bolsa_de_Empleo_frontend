@@ -32,3 +32,7 @@
 .font-roboto {
   font-family: 'Roboto', sans-serif;
 }
+
+.card-style:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el cursor */
+}
