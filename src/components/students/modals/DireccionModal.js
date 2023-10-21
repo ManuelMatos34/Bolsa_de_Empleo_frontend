@@ -2,11 +2,11 @@ import React from 'react'
 
 const DireccionModal = () => {
     const formFields = [
-        { label: 'First Street', id: 'FirstStreet', type: 'text' },
-        { label: 'Second Street', id: 'SecondStreet', type: 'text' },
-        { label: 'City', id: 'city', type: 'text' },
-        { label: 'State', id: 'state', type: 'text' },
-        { label: 'Postal Code', id: 'PostalCode', type: 'text' },
+        { label: 'Direccion 1', id: 'FirstStreet', type: 'text' },
+        { label: 'Direccion 2', id: 'SecondStreet', type: 'text' },
+        { label: 'Ciudad', id: 'city', type: 'text' },
+        { label: 'Estado', id: 'state', type: 'text' },
+        { label: 'Codigo Postal', id: 'PostalCode', type: 'text' },
     ];
 
     return (

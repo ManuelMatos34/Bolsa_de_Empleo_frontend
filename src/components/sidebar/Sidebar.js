@@ -1,49 +1,61 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import unphuImage from '../../assets/img/image.png';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import unphuImage from "../../assets/img/image.png";
+import Context from "../global/Context";
 
 const Sidebar = () => {
+
+
+    const s = useContext(Context);
+    const fullname =
+        s.authUser[0]?.Std_FirstName +
+        " " +
+        s.authUser[0]?.Std_SecondName +
+        " " +
+        s.authUser[0]?.Std_LastName;
+
     return (
         <nav className="navbar navbar-expand-lg">
-            <div className="container-fluid">
+            <div className="container">
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav flex-column mb-2 mb-lg-0" style={{ flex: 1 }}>
+                    <ul className="navbar-nav flex-column mb-2 mb-lg-0">
                         <div className="d-flex align-items-center mt-4">
-                            <div style={{ flex: 1 }}>
+                            <div>
                                 <img src={unphuImage} alt="unphu" width="80" height="80" style={{ borderRadius: "50%" }} />
                             </div>
-                            <div style={{ flex: 2 }}>
+                            <div className="ms-3">
                                 <div className="small">Bienvenido:</div>
-                                Manuel Alexander Matos Guerrero
+                                {fullname}
                             </div>
                         </div>
-                        <div className='mt-4'>
+                        <div className="mt-4">
                             <li className="nav-item mt-2">
-                                <a className="nav-link d-flex align-items-center" href="/homestudents">
+                                <Link className="nav-link d-flex align-items-center" to="/homestudents">
                                     <i className="icon-color fas fa-home mr-2"></i>&nbsp; Inicio
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item mt-2">
-                                <a className="nav-link d-flex align-items-center" href="/studentapplications">
+                                <Link className="nav-link d-flex align-items-center" to="/studentapplications">
                                     <i className="icon-color fas fa-graduation-cap mr-2"></i>&nbsp; Mis Postulaciones
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item mt-2">
-                                <a className="nav-link d-flex align-items-center" href="/jobvacancies">
+                                <Link className="nav-link d-flex align-items-center" to="/jobvacancies">
                                     <i className="icon-color fas fa-briefcase mr-2"></i>&nbsp; Ofertas de Empleo
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item mt-2">
-                                <a className="nav-link d-flex align-items-center" href="/notifications">
+                                <Link className="nav-link d-flex align-items-center" to="/notifications">
                                     <i className="icon-color fas fa-bell mr-2"></i>&nbsp; Notificaciones
-                                </a>
+                                </Link>
                             </li>
                         </div>
                     </ul>
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;

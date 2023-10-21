@@ -3,8 +3,7 @@ import React from 'react';
 const StudentModal = () => {
 
     const formFields = [
-        { label: 'Educational Email', id: 'educationalEmail', type: 'email' },
-        { label: 'Personal Email', id: 'personalEmail', type: 'email' },
+        { label: 'Correo Personal', id: 'personalEmail', type: 'email' },
         { label: 'Foto de perfil', id: 'fileUpload', type: 'file' }
     ];
 

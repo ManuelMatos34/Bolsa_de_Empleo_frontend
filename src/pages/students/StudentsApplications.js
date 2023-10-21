@@ -6,23 +6,21 @@ import Applications from '../../components/students/Applications'
 
 const StudentsApplications = () => {
     return (
-        <div>
-            <div style={{ position: "fixed", backgroundColor: "#0C4770", width: "100%" }}>
-                <Header />
-            </div>
-            <div className="row" style={{ height: "100vh", paddingTop: 55, margin: 0, overflowY: "hidden" }}>
-                <div className="col-md-2" style={{ backgroundColor: "white" }}>
-                    <Sidebar />
-                </div>
-                <div className="col-md-10" style={{ backgroundColor: "#F6FBFF" }}>
-                    <div className='mt-2'>
-                        <Applications />
+        <div className="d-flex flex-column">
+            <Header />
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-2 col-12 bg-white d-flex flex-column">
+                        <Sidebar />
+                    </div>
+                    <div className="col-md-10 col-12 bg-second-color d-flex flex-column">
+                        <div className="mt-2 container">
+                            <Applications />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div style={{ position: "fixed", bottom: 0, width: "100%", backgroundColor: "#0C4770" }}>
-                <Footer />
-            </div>
+            <Footer />
         </div>
     )
 }

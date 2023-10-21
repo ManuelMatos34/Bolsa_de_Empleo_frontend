@@ -2,8 +2,8 @@ import React from 'react'
 
 const ContactModal = () => {
     const formFields = [
-        { label: 'Telephone', id: 'telephone', type: 'text' },
-        { label: 'Mobile', id: 'mobile', type: 'text' },
+        { label: 'Telefono', id: 'telephone', type: 'text' },
+        { label: 'Celular', id: 'mobile', type: 'text' },
     ];
 
     return (
