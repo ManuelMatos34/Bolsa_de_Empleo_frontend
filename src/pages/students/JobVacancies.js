@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
 import VacanciesStudents from '../../components/students/VacanciesStudents'
 import Filter from '../../components/Filter'
-import Context from '../../components/global/Context'
 import { getOfeByCa } from '../../services/services'
+import { filterJobs, getUserCookies } from '../../helpers/Helpers'
 
 const JobVacancies = () => {
-    const s = useContext(Context);
     const [data, setData] = useState(null);
-    const userCa = s.authUser[0].Ca_ID;
-
+    const stdId = getUserCookies();
+    const userCa = stdId[0].Ca_ID;
     const [jobTitleFilter, setJobTitleFilter] = useState('');
     const [contractTypeFilter, setContractTypeFilter] = useState('');
     const [modalityFilter, setModalityFilter] = useState('');
@@ -21,32 +20,21 @@ const JobVacancies = () => {
             let getResponse = await getOfeByCa(userCa);
             let response = getResponse.data;
 
-            if (jobTitleFilter) {
-                response = response.filter((job) =>
-                    job.Job_Title.toLowerCase().includes(jobTitleFilter.toLowerCase())
-                );
-            }
-            if (contractTypeFilter) {
-                response = response.filter(
-                    (job) => job.Job_ContractType.toLowerCase() === contractTypeFilter.toLowerCase()
-                );
-            }
-            if (modalityFilter) {
-                response = response.filter(
-                    (job) => job.Job_Modality.toLowerCase() === modalityFilter.toLowerCase()
-                );
+            if (response.message === 0) {
+                response = false;
             }
 
-            setData(response);
+            setData(filterJobs(response, jobTitleFilter, contractTypeFilter, modalityFilter));
 
         } catch (error) {
             // Manejo de errores
             console.error("error", error);
-            setData(null);
+            setData(false);
         }
     };
 
     useEffect(() => {
+        console.log("useEffect vacancies");
         getVacancies();
     }, [jobTitleFilter, contractTypeFilter, modalityFilter]);
 

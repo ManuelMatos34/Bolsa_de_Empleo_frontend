@@ -14,6 +14,7 @@ const CompLoginForm = () => {
                         id="user"
                         name="user"
                         required
+                        style={{ boxShadow: "none" }}
                     />
                 </div>
                 <div className="mb-3">
@@ -25,6 +26,7 @@ const CompLoginForm = () => {
                         className="form-control"
                         id="password"
                         name="password"
+                        style={{ boxShadow: "none" }}
                         required
                     />
                 </div>

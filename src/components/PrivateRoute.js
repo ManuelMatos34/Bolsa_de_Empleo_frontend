@@ -1,11 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useContext } from 'react'
-import Context from './global/Context';
+import { getIsAuthenticatedCookies } from "../helpers/Helpers";
 
 export const PrivateRoute = ({ redirectTo = "/", children }) => {
-    const s = useContext(Context);
-    if (s.isAuthenticated === false) {
-        
+    const authedUser = getIsAuthenticatedCookies();
+
+    if (authedUser === false) {
         return <Navigate to={redirectTo} replace />;
     }
 

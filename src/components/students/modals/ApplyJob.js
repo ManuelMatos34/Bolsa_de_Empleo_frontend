@@ -1,18 +1,15 @@
-import React, { useContext, useState } from 'react'
-import Context from '../../global/Context'
+import React, { useState } from 'react'
 import { postApplyJob } from '../../../services/services'
+import { getUserCookies } from '../../../helpers/Helpers';
 
 const ApplyJob = ({ Job_ID }) => {
     const [salaryExpetation, setSalaryExpectation] = useState('');
-    const s = useContext(Context);
+    const stdId = getUserCookies();
 
-    const userId = s.authUser[0].Std_ID;
+    const userId = stdId[0].Std_ID;
     const jobID = Job_ID;
 
     const fetchApplyJob = () => {
-        console.log("Job_ID: ", jobID);
-        console.log("Std_ID: ", userId);
-        console.log("SalaryExpetation: ", salaryExpetation);
         postApplyJob(jobID, userId, salaryExpetation)
             .then((response) => {
                 console.log(response);
@@ -45,7 +42,8 @@ const ApplyJob = ({ Job_ID }) => {
                                             onChange={(e) => setSalaryExpectation(e.target.value)}
                                             type={field.type}
                                             className="form-control"
-                                            id={field.id} 
+                                            id={field.id}
+                                            style={{ boxShadow: "none" }}
                                             required />
                                     </div>
                                 ))}

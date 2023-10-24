@@ -3,9 +3,10 @@ import { postAuthStudents } from '../../services/services';
 import { messageAlert } from '../../helpers/Alerts';
 import { useNavigate } from "react-router-dom";
 import Context from '../global/Context';
+import { setIsAuthenticatedCookies, setUserCookies } from '../../helpers/Helpers';
 
 const UserLoginForm = () => {
-    const s  = useContext(Context);
+    const s = useContext(Context);
     const initialState = {
         user: "",
         pass: "",
@@ -16,19 +17,19 @@ const UserLoginForm = () => {
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [id]: value }));
-        console.log(formData);
     };
 
     const resetForm = () => {
         setFormData(initialState);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        postAuthStudents(formData.user, formData.pass)
+        await postAuthStudents(formData.user, formData.pass)
             .then((response) => {
-                s.setIsAuthenticated(true);
                 s.setAuthUser(response.data);
+                setUserCookies(response.data);
+                setIsAuthenticatedCookies(true);
                 navigate("/homestudents");
             })
             .catch((error) => {
@@ -53,6 +54,7 @@ const UserLoginForm = () => {
                         value={formData.user}
                         onChange={handleInputChange}
                         required
+                        style={{ boxShadow: "none" }}
                     />
                 </div>
                 <div className="mb-3">
@@ -66,6 +68,7 @@ const UserLoginForm = () => {
                         value={formData.pass}
                         onChange={handleInputChange}
                         required
+                        style={{ boxShadow: "none" }}
                     />
                 </div>
                 <div className="d-flex justify-content-center mt-3">

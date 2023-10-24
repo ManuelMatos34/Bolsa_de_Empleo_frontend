@@ -17,35 +17,18 @@ function App() {
       <GlobalContext>
         <BrowserRouter>
           <Routes>
+
             <Route path="/" element={<UserLogin />} />
             <Route path="/complogin" element={<CompLogin />} />
             <Route path="/compregister" element={<CompRegister />} />
+
             <Route element={<PrivateRoute />}>
               <Route path="/homestudents" element={<HomeStudents />} />
               <Route path="/jobvacancies" element={<JobVacancies />} />
               <Route path="/studentapplications" element={<StudentsApplications />} />
               <Route path="/notifications" element={<Notifications />} />
             </Route>
-            {/* <Route
-              path="/homestudents"
-              element={
-                <PrivateRoute
-                  redirectTo="/"
-                >
-                  <HomeStudents />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/jobvacancies"
-              element={
-                <PrivateRoute
-                  redirectTo="/"
-                >
-                  <JobVacancies />
-                </PrivateRoute>
-              }
-            /> */}
+            
           </Routes>
         </BrowserRouter>
       </GlobalContext>

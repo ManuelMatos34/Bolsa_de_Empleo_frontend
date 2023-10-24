@@ -43,7 +43,12 @@ const VacanciesStudents = ({ data }) => {
         ) : (
           <div className='card m-1'>
             <div className='card-body'>
-              <p className='m-2'>Cargando...</p>
+              <div className="d-flex align-items-center">
+                <p className='m-1'>Cargando...</p>
+                <div className="spinner-border icon-color m-1" role="status">
+                  <span className="visually-hidden"></span>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -54,7 +59,7 @@ const VacanciesStudents = ({ data }) => {
         ) : (
           <div className='card m-1'>
             <div className='card-body'>
-              <p className='m-2'>Haz click en Más Info para ver más a detalle la vacante.</p>
+              <p className='m-2' style={{ display: 'inline' }}>Haz click en <p className='btn-style' style={{ display: 'inline' }}>Más Info</p> para ver más a detalle la vacante.</p>
             </div>
           </div>
         )}

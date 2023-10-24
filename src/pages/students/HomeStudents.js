@@ -1,8 +1,8 @@
-import React from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
 import ConfigStudent from '../../components/students/ConfigStudent'
+
 
 const HomeStudents = () => {
     return (

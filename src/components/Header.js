@@ -2,21 +2,23 @@
 import React, { useContext } from 'react'
 import Context from './global/Context';
 import { useNavigate } from "react-router-dom";
+import { deleteUserCookies, deleteIsAuthenticatedCookies } from '../helpers/Helpers';
 
 const Header = () => {
     const s = useContext(Context);
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        s.setIsAuthenticated(false);
         s.setAuthUser([]);
+        deleteUserCookies();
+        deleteIsAuthenticatedCookies();
         navigate("/");
     };
 
     return (
         <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#0C4770" }}>
             <div className="container">
-                <a className="navbar-brand" href="#"><b style={{ color: "white" }}>UNPHU - Bolsa de Empleos</b></a>
+                <h6 className="navbar-brand m-1"><b style={{ color: "white" }}>UNPHU - Bolsa de Empleos</b></h6>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span className="navbar-toggler-icon"></span>
                 </button>

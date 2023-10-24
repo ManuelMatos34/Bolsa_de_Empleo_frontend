@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import AuthContext from "./Context";
 
 const GlobalContext = (props) => {
-
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // state to know if the user is authenticated
-    const [authUser, setAuthUser] = useState([]); // data of the authenticated user
+    const [authUser, setAuthUser] = useState([]); 
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, authUser, setAuthUser }}>
+        <AuthContext.Provider value={{ authUser, setAuthUser }}>
             {props.children}
         </AuthContext.Provider>
     );

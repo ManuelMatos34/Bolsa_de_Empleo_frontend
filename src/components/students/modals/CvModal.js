@@ -20,7 +20,7 @@ const CvModal = () => {
                                 {formFields.map((field) => (
                                     <div className="mb-3" key={field.id}>
                                         <label htmlFor={field.id} className="form-label">{field.label}</label>
-                                        <input type={field.type} className="form-control" id={field.id} />
+                                        <input type={field.type} className="form-control" id={field.id} style={{ boxShadow: "none" }} />
                                     </div>
                                 ))}
                             </form>

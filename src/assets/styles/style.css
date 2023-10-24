@@ -54,18 +54,61 @@
 
 .bg-second-color {
   background-color: #F6FBFF;
-  min-height: 91vh; /* Asegura que el div ocupe al menos el alto de la ventana */
+  min-height: 91vh;
+  /* Asegura que el div ocupe al menos el alto de la ventana */
+}
+
+.icon-notification {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.btn-style {
+  background-color: #0C4770;
+  border-color: #0C4770;
+  color: #fff;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 
 
-
-/* styles.css */
-.sidebar-icons-only .nav-link {
-  display: none; /* Oculta los enlaces de texto en el sidebar */
-}
-
-.sidebar-icons-only img {
-  width: 50%; /* Ajusta el ancho de la imagen para que sea responsiva */
-  max-width: 100px; /* Establece un ancho máximo para la imagen */
+.form-control.custom-input {
+  box-shadow: none;
 }
