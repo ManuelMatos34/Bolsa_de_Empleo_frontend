@@ -82,3 +82,64 @@ export const confirmUser = async () => {
     const response = await getStdById(inSession);
     return response.data;
 };
+
+export const provincias = {
+    Azua: "Azua",
+    Bahoruco: "Bahoruco",
+    Barahona: "Barahona",
+    Dajabon: "Dajabón",
+    Duarte: "Duarte",
+    EliasPina: "Elías Piña",
+    ElSeibo: "El Seibo",
+    Espaillat: "Espaillat",
+    HatoMayor: "Hato Mayor",
+    HermanasMirabal: "Hermanas Mirabal",
+    Independencia: "Independencia",
+    LaAltagracia: "La Altagracia",
+    LaRomana: "La Romana",
+    LaVega: "La Vega",
+    MariaTrinidadSanchez: "María Trinidad Sánchez",
+    MonseñorNouel: "Monseñor Nouel",
+    MonteCristi: "Monte Cristi",
+    MontePlata: "Monte Plata",
+    Pedernales: "Pedernales",
+    Peravia: "Peravia",
+    PuertoPlata: "Puerto Plata",
+    Samana: "Samaná",
+    SanchezRamirez: "Sánchez Ramírez",
+    SanCristobal: "San Cristóbal",
+    SanJoseDeOcoa: "San José de Ocoa",
+    SanJuan: "San Juan",
+    SanPedroDeMacoris: "San Pedro de Macorís",
+    Santiago: "Santiago",
+    SantiagoRodriguez: "Santiago Rodríguez",
+    SantoDomingo: "Santo Domingo",
+    Valverde: "Valverde"
+};
+
+export const convertImage = (data) => {
+    const uint8Array = new Uint8Array(data);
+    let binaryString = '';
+    uint8Array.forEach((byte) => {
+        binaryString += String.fromCharCode(byte);
+    });
+    const base64ImageData = btoa(binaryString);
+    return base64ImageData;
+};
+
+export const tiposDeContrato = {
+    contratoPracticas: 'Contrato de Prácticas',
+    contratoFormacion: 'Contrato de Formación',
+    contratoTemporal: 'Contrato Temporal',
+    jornadaCompleta: 'Jornada Completa',
+    jornadaParcial: 'Jornada Parcial',
+    autonomo: 'Autónomo',
+    profesionalIndependiente: 'Profesional Independiente',
+    temporal: 'Temporal',
+};
+
+export const modalidades = {
+    presencial: 'Presencial',
+    remoto: 'Remoto',
+    hibrido: 'Híbrido',
+};

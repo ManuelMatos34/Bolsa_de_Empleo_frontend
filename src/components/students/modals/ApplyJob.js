@@ -20,7 +20,7 @@ const ApplyJob = ({ Job_ID }) => {
 
     }
     const formFields = [
-        { label: 'Expectativa salarial', id: 'salaryExpetation', type: 'text' },
+        { label: 'Expectativa salarial', id: 'salaryExpetation', type: 'text', maxLength: "6", requeried: true, pattern: "[0-9]*" },
     ];
 
     return (
@@ -28,12 +28,12 @@ const ApplyJob = ({ Job_ID }) => {
             <div className="modal fade" id="staticBackdropApply" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
-                        <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="staticBackdropLabel">Aplicar</h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            <form>
+                        <form onSubmit={fetchApplyJob}>
+                            <div className="modal-header">
+                                <h1 className="modal-title fs-5" id="staticBackdropLabel">Aplicar</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
                                 {formFields.map((field) => (
                                     <div className="mb-3" key={field.id}>
                                         <label htmlFor={field.id} className="form-label">{field.label}</label>
@@ -44,15 +44,18 @@ const ApplyJob = ({ Job_ID }) => {
                                             className="form-control"
                                             id={field.id}
                                             style={{ boxShadow: "none" }}
-                                            required />
+                                            maxLength={field.maxLength}
+                                            pattern={field.pattern}
+                                            required={field.requeried}
+                                             />
                                     </div>
                                 ))}
-                            </form>
-                        </div>
-                        <div className="modal-footer">
-                            <button style={{ border: "none" }} type="button" className="btn btn-danger btn-sm" data-bs-dismiss="modal">Cerrar</button>
-                            <button onClick={() => fetchApplyJob()} style={{ backgroundColor: "#0C4770", border: "none" }} type="button" className="btn btn-primary btn-sm">Aplicar</button>
-                        </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button style={{ border: "none" }} type="button" className="btn btn-danger btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                                <button style={{ backgroundColor: "#0C4770", border: "none" }} type="submit" className="btn btn-primary btn-sm">Aplicar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

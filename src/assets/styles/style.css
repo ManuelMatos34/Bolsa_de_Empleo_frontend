@@ -2,6 +2,14 @@
   color: #0C4770;
 }
 
+.icon-second-color {
+  color: #fff;
+}
+
+.text-color {
+  color: #fff;
+}
+
 /* Estilo del contenedor con desplazamiento */
 .overflow-auto {
   overflow: auto;
@@ -55,7 +63,11 @@
 .bg-second-color {
   background-color: #F6FBFF;
   min-height: 91vh;
-  /* Asegura que el div ocupe al menos el alto de la ventana */
+}
+
+.bg-first-color {
+  background-color: #0C4770;
+  height: 88vh;
 }
 
 .icon-notification {
@@ -108,7 +120,39 @@
 }
 
 
-
 .form-control.custom-input {
   box-shadow: none;
+}
+
+/* .left-col-size {
+  flex-basis: 10%; 
+}
+
+.right-col-size {
+  flex-basis: 90%; 
+} */
+
+.card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link:hover {
+  background-color: #0C4770;
+  /* Cambia el color de fondo en hover */
+  color: #fff;
+  /* Cambia el color del texto en hover */
+  border-radius: 5px;
+  margin: 10px;
+}
+
+@media (max-width: 1280px) {
+  .bg-first-color {
+    background-color: #0C4770;
+    height: 65vh;
+  }
+
+  .responsive-fot {
+    display: none;
+  }
 }

@@ -9,11 +9,11 @@ const HomeStudents = () => {
         <div className="d-flex flex-column">
             <Header />
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-2 col-12 bg-white d-flex flex-column">
+                <div className="row p-col-size">
+                    <div className="col-md-2 col-12 d-flex flex-column left-col-size">
                         <Sidebar />
                     </div>
-                    <div className="col-md-10 col-12 bg-second-color d-flex flex-column">
+                    <div className="col-md-10 col-12 bg-second-color d-flex flex-column right-col-size">
                         <div className="mt-4 container">
                             <ConfigStudent />
                         </div>

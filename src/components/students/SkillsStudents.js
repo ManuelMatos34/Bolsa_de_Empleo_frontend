@@ -80,57 +80,54 @@ const SkillsStudents = () => {
 
     return (
         <div>
-            <div className='col-md-12 mt-2'>
-                <div className='card'>
-                    <div className='card-body'>
-                        <h5 className="card-title m-1 icon-color">Habilidades</h5>
-                        <div className='row'>
-                            <div className='col-md-6 col-12'>
-                                <p className="card-subtitle text-muted m-1">Mis Habilidades:</p>
-                                {data ? (
-                                    data.map((item) => (
-                                        <button onClick={() => handleDeleteSkills(item.ID)} key={item.ID} style={{ backgroundColor: "#0C4770", border: "none" }} className="btn btn-primary btn-sm m-1">
-                                            {item.Skill} <i className="fas fa-times"></i>
-                                        </button>
-                                    ))
-                                ) : (
-                                    <div>
-                                        <p className='m-1'>Elige una habilidad que poseas.</p>
-                                    </div>
-                                )}
-                            </div>
-                            <div className='col-md-6 col-12'>
-                                <p className="card-subtitle text-muted m-1">Agregar Habilidades:</p>
-                                <div className="input-group mb-3">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Buscar..."
-                                        value={searchSkill}
-                                        style={{ boxShadow: "none" }}
-                                        onChange={(e) => setSearchSkill(e.target.value)}
-                                    />
+            <div className='card'>
+                <div className='card-body'>
+                    <div className='row'>
+                        <div className='col-md-6 col-12'>
+                            <p className="card-subtitle text-muted m-1">Mis Habilidades:</p>
+                            {data ? (
+                                data.map((item) => (
+                                    <button onClick={() => handleDeleteSkills(item.ID)} key={item.ID} style={{ backgroundColor: "#0C4770", border: "none" }} className="btn btn-primary btn-sm m-1">
+                                        {item.Skill} <i className="fas fa-times"></i>
+                                    </button>
+                                ))
+                            ) : (
+                                <div>
+                                    <p className='m-1'>Elige una habilidad que poseas.</p>
                                 </div>
-                                {dataSkillsNot ? (
-                                    dataSkillsNot.map((item) => (
-                                        <button onClick={() => handleAddSkill(item.Skill_ID)} key={item.Skill_ID} style={{ backgroundColor: "#0C4770", border: "none" }} className="btn btn-primary btn-sm m-1">
-                                            {item.Skill} <i className="fas fa-plus"></i>
-                                        </button>
-                                    ))
-                                ) : (
-                                    <div>
-                                        <p className='m-1'>Ya tienes todas las habilidades!!.</p>
-                                    </div>
-                                )}
+                            )}
+                        </div>
+                        <div className='col-md-6 col-12'>
+                            <p className="card-subtitle text-muted m-1">Agregar Habilidades:</p>
+                            <div className="input-group mb-3">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Buscar..."
+                                    value={searchSkill}
+                                    style={{ boxShadow: "none" }}
+                                    onChange={(e) => setSearchSkill(e.target.value)}
+                                />
                             </div>
+                            {dataSkillsNot ? (
+                                dataSkillsNot.map((item) => (
+                                    <button onClick={() => handleAddSkill(item.Skill_ID)} key={item.Skill_ID} style={{ backgroundColor: "#0C4770", border: "none" }} className="btn btn-primary btn-sm m-1">
+                                        {item.Skill} <i className="fas fa-plus"></i>
+                                    </button>
+                                ))
+                            ) : (
+                                <div>
+                                    <p className='m-1'>Ya tienes todas las habilidades!!.</p>
+                                </div>
+                            )}
                         </div>
-                        <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
-                            <button style={{ backgroundColor: "#FFFFFF", border: "none" }}>
-                                <i data-tooltip-id="my-tooltip-inline" data-tooltip-content="Aqui podras agregar las habilidades que tienes, los reclutadores podran verlas." className="fas fa-question"></i>
-                            </button>
-                            <Tooltip id="my-tooltip-inline" style={{ backgroundColor: "#0C4770", color: "#FFFFFF" }}
-                            />
-                        </div>
+                    </div>
+                    <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
+                        <button style={{ backgroundColor: "#FFFFFF", border: "none" }}>
+                            <i data-tooltip-id="my-tooltip-inline" data-tooltip-content="Aqui podras agregar las habilidades que tienes, los reclutadores podran verlas." className="fas fa-question"></i>
+                        </button>
+                        <Tooltip id="my-tooltip-inline" style={{ backgroundColor: "#0C4770", color: "#FFFFFF" }}
+                        />
                     </div>
                 </div>
             </div>

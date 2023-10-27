@@ -1,12 +1,11 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { postAuthStudents } from '../../services/services';
 import { messageAlert } from '../../helpers/Alerts';
 import { useNavigate } from "react-router-dom";
-import Context from '../global/Context';
 import { setIsAuthenticatedCookies, setUserCookies } from '../../helpers/Helpers';
 
 const UserLoginForm = () => {
-    const s = useContext(Context);
+
     const initialState = {
         user: "",
         pass: "",
@@ -27,7 +26,6 @@ const UserLoginForm = () => {
         e.preventDefault();
         await postAuthStudents(formData.user, formData.pass)
             .then((response) => {
-                s.setAuthUser(response.data);
                 setUserCookies(response.data);
                 setIsAuthenticatedCookies(true);
                 navigate("/homestudents");
@@ -54,6 +52,7 @@ const UserLoginForm = () => {
                         value={formData.user}
                         onChange={handleInputChange}
                         required
+                        autoComplete="username"
                         style={{ boxShadow: "none" }}
                     />
                 </div>
@@ -68,6 +67,7 @@ const UserLoginForm = () => {
                         value={formData.pass}
                         onChange={handleInputChange}
                         required
+                        autoComplete="current-password"
                         style={{ boxShadow: "none" }}
                     />
                 </div>

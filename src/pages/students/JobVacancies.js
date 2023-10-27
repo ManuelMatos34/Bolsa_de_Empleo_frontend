@@ -34,7 +34,6 @@ const JobVacancies = () => {
     };
 
     useEffect(() => {
-        console.log("useEffect vacancies");
         getVacancies();
     }, [jobTitleFilter, contractTypeFilter, modalityFilter]);
 
@@ -44,11 +43,11 @@ const JobVacancies = () => {
             <Header />
             <div className="container-fluid ">
                 <div className="row ">
-                    <div className="col-md-2 col-12 bg-white d-flex flex-column">
+                    <div className="col-md-2 col-12  d-flex flex-column">
                         <Sidebar />
                     </div>
                     <div className="col-md-10 col-12 bg-second-color d-flex flex-column">
-                        <div className="mt-2 container ">
+                        <div className="mt-4 container ">
                             <Filter
                                 jobTitleFilter={jobTitleFilter}
                                 setJobTitleFilter={setJobTitleFilter}
@@ -58,7 +57,7 @@ const JobVacancies = () => {
                                 setModalityFilter={setModalityFilter}
                             />
                         </div>
-                        <div className='mt-2 container'>
+                        <div className='mt-1 container'>
                             <VacanciesStudents data={data} />
                         </div>
                     </div>
