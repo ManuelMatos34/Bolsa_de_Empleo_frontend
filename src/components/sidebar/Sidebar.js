@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { convertImage, getUserCookies } from "../../helpers/Helpers";
+import { convertImage, getUserCookies, getUserName } from "../../helpers/Helpers";
 import { getImgEst } from "../../services/services";
 import photoNull from '../../assets/img/no image.png';
+import SideStudents from "./SideStudents";
+import SideAdmins from "./SideAdmins";
 
 
 const Sidebar = () => {
-    const message = true;
-    const dataUser = getUserCookies();
-    const studentName = dataUser[0]?.Std_FirstName + " " + dataUser[0]?.Std_SecondName + " " + dataUser[0]?.Std_LastName;
-
     const [data, setData] = useState(null);
-
+    const [name, setName] = useState(null);
+    const dataUser = getUserCookies();
+    const userRol = dataUser[0]?.Rol_ID;
+    const message = true;
+    
     const getImg = async () => {
         try {
             const response = await getImgEst(dataUser[0]?.Std_ID);
@@ -32,6 +34,7 @@ const Sidebar = () => {
     };
 
     useEffect(() => {
+        setName(getUserName(dataUser));
         getImg();
     }, []);
 
@@ -54,26 +57,13 @@ const Sidebar = () => {
                                 </div>
                                 <div className="m-2">
                                     <div className="small text-color">Bienvenido:</div>
-                                    <div className="text-color">{studentName}</div>
+                                    <div className="text-color">{name}</div>
                                 </div>
                             </div>
 
                             <div className="m-2 mt-4 text-nowrap">
-                                <li className="nav-item mt-3">
-                                    <Link className="nav-link d-flex align-items-center text-white" to="/homestudents">
-                                        <i className="icon-second-color fas fa-home align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Inicio</p>
-                                    </Link>
-                                </li>
-                                <li className="nav-item mt-3">
-                                    <Link className="nav-link d-flex align-items-center text-white" to="/studentapplications">
-                                        <i className="icon-second-color fas fa-graduation-cap align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Postulaciones</p>
-                                    </Link>
-                                </li>
-                                <li className="nav-item mt-3">
-                                    <Link className="nav-link d-flex align-items-center text-white" to="/jobvacancies">
-                                        <i className="icon-second-color fas fa-briefcase align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Ofertas de Trabajo</p>
-                                    </Link>
-                                </li>
+                            {userRol === 2 ? <SideAdmins /> : userRol === 4 ? <SideStudents /> : null}
+
                                 {message ? (
                                     <li className="nav-item mt-3">
                                         <Link className="nav-link d-flex align-items-center text-white" to="/notifications">

@@ -170,3 +170,14 @@ export const putExp = (
         EndDate,
     });
 };
+
+
+export const authUser = (
+    User_Email,
+    User_Password,
+) => {
+    return axios.post("http://localhost:4000/authUser", {
+        User_Email,
+        User_Password,
+    });
+};

@@ -8,6 +8,7 @@ import StudentsApplications from './pages/students/StudentsApplications';
 import Notifications from './pages/NotificationsPage';
 import { PrivateRoute } from "./components/PrivateRoute";
 import GlobalContext from "./components/global/GlobalContext";
+import HomeAdmins from './pages/admins/HomeAdmins';
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
               <Route path="/jobvacancies" element={<JobVacancies />} />
               <Route path="/studentapplications" element={<StudentsApplications />} />
               <Route path="/notifications" element={<Notifications />} />
+
+              <Route path="/homeadmins" element={<HomeAdmins />} />
             </Route>
             
           </Routes>

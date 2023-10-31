@@ -143,3 +143,12 @@ export const modalidades = {
     remoto: 'Remoto',
     hibrido: 'Híbrido',
 };
+
+export const getUserName = (dataUser) => {
+    if (dataUser[0]?.Std_FirstName !== undefined) {
+        return dataUser[0].Std_FirstName + " " + dataUser[0]?.Std_SecondName + " " + dataUser[0]?.Std_LastName;
+    } else if (dataUser[0]?.User_Name !== undefined) {
+        return dataUser[0].User_Name;
+    }
+    return null;
+}

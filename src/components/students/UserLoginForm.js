@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { postAuthStudents } from '../../services/services';
+import { authUser, postAuthStudents } from '../../services/services';
 import { messageAlert } from '../../helpers/Alerts';
 import { useNavigate } from "react-router-dom";
 import { setIsAuthenticatedCookies, setUserCookies } from '../../helpers/Helpers';
@@ -24,18 +24,31 @@ const UserLoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await postAuthStudents(formData.user, formData.pass)
-            .then((response) => {
-                setUserCookies(response.data);
-                setIsAuthenticatedCookies(true);
-                navigate("/homestudents");
-            })
-            .catch((error) => {
-                messageAlert("Error", error.response.data.message, "error");
-                console.error("Error al obtener los datos del servidor:", error.response.data);
-            });
-
-        resetForm();
+    
+        try {
+            const [student, admin] = await Promise.all([
+                postAuthStudents(formData.user, formData.pass),
+                authUser(formData.user, formData.pass)
+            ]);
+    
+            if (student.data[0]?.Std_ID) {
+                setUserAndNavigate(student.data, "/homestudents");
+            } else if (admin.data[0]?.User_Name) {
+                setUserAndNavigate(admin.data, "/homeadmins");
+            } else {
+                messageAlert("Error", "No ha introducido los datos correctos", "error");
+            }
+    
+            resetForm();
+        } catch (error) {
+            messageAlert("Error", error.response.data.message, "error");
+        }
+    };
+    
+    const setUserAndNavigate = (userData, path) => {
+        setUserCookies(userData);
+        setIsAuthenticatedCookies(true);
+        navigate(path);
     };
 
     return (
