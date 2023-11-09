@@ -67,7 +67,7 @@
 
 .bg-first-color {
   background-color: #0C4770;
-  height: 88vh;
+  /* height: 88vh; */
 }
 
 .icon-notification {
@@ -146,13 +146,13 @@
   margin: 10px;
 }
 
-@media (max-width: 1280px) {
-  .bg-first-color {
-    background-color: #0C4770;
-    height: 65vh;
+@media (max-width: 1520px) {
+  .left-col-size {
+    width: 100%;
   }
 
-  .responsive-fot {
-    display: none;
+  .right-col-size {
+    width: 100%;
+    /* Make the main content take full width */
   }
 }

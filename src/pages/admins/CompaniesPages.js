@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
-import Applications from '../../components/students/Applications'
+import Footer from '../../components/Footer'
+import CompaniesAdmin from '../../components/admins/CompaniesAdmin'
+import FilterCompanies from '../../components/admins/FilterCompanies'
 
-const StudentsApplications = () => {
+const HomeAdmins = () => {
     return (
         <div>
             <Header />
@@ -12,7 +13,12 @@ const StudentsApplications = () => {
                 <div className="row">
                     <Sidebar />
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 right-col-size">
-                        <Applications />
+                        <div className='mt-1'>
+                            <FilterCompanies />
+                        </div>
+                        <div className='mt-1'>
+                            <CompaniesAdmin />
+                        </div>
                     </main>
                 </div>
             </div>
@@ -21,4 +27,4 @@ const StudentsApplications = () => {
     )
 }
 
-export default StudentsApplications
+export default HomeAdmins

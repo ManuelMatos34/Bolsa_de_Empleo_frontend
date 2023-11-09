@@ -7,18 +7,14 @@ import Sidebar from '../components/sidebar/Sidebar'
 
 const NotificationsPage = () => {
     return (
-        <div className="d-flex flex-column">
+        <div>
             <Header />
-            <div className="container-fluid">
-                <div className="row ">
-                    <div className="col-md-2 col-12 d-flex flex-column">
-                        <Sidebar />
-                    </div>
-                    <div className="col-md-10 col-12 bg-second-color d-flex flex-column">
-                        <div className=" container ">
-                            <Notifications />
-                        </div>
-                    </div>
+            <div className="container-fluid mt-3">
+                <div className="row">
+                    <Sidebar />
+                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 right-col-size">
+                        <Notifications />
+                    </main>
                 </div>
             </div>
             <Footer />

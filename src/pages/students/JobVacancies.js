@@ -39,15 +39,13 @@ const JobVacancies = () => {
 
 
     return (
-        <div className="d-flex flex-column">
+        <div>
             <Header />
-            <div className="container-fluid ">
-                <div className="row ">
-                    <div className="col-md-2 col-12  d-flex flex-column">
-                        <Sidebar />
-                    </div>
-                    <div className="col-md-10 col-12 bg-second-color d-flex flex-column">
-                        <div className="mt-4 container ">
+            <div className="container-fluid mt-3">
+                <div className="row">
+                    <Sidebar />
+                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 right-col-size">
+                        <div className="mt-2">
                             <Filter
                                 jobTitleFilter={jobTitleFilter}
                                 setJobTitleFilter={setJobTitleFilter}
@@ -57,10 +55,10 @@ const JobVacancies = () => {
                                 setModalityFilter={setModalityFilter}
                             />
                         </div>
-                        <div className='mt-1 container'>
+                        <div className='mt-1'>
                             <VacanciesStudents data={data} />
                         </div>
-                    </div>
+                    </main>
                 </div>
             </div>
             <Footer />

@@ -4,9 +4,9 @@ import logo from "../../assets/img/unphu-logo.webp";
 
 const CompRegister = () => {
   return (
-    <div style={{ backgroundColor: "#008D31", height: "100%", width: "100%", position: "absolute" }}>
+    <div className='mt-5'>
       <div className="container">
-        <div className='card shadow mt-4'>
+        <div className='card shadow mt-4 mb-5'>
           <div className='card-body m-4'>
             <div className="row">
               <div className="col-lg-3 p-4">

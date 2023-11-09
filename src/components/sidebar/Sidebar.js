@@ -14,7 +14,7 @@ const Sidebar = () => {
     const dataUser = getUserCookies();
     const userRol = dataUser[0]?.Rol_ID;
     const message = true;
-    
+
     const getImg = async () => {
         try {
             const response = await getImgEst(dataUser[0]?.Std_ID);
@@ -39,37 +39,40 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <nav className="navbar navbar-expand-lg">
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav flex-column">
+        <nav id="sidebar" className="col-md-3 col-lg-2 d-md-block bg-light sidebar bg-white left-col-size">
+            <div className="position-sticky">
 
-                    <div className="card bg-first-color" >
-                        <div className="card-body">
-                            <div className="d-flex justify-content-center align-items-center m-1 mt-4">
-                                <div className="text-center m-2">
-                                    {
-                                        data ? (
-                                            <img src={`data:image/png;base64,${data}`} alt="unphu" width="120" height="120" style={{ borderRadius: "50%" }} />
-                                        ) : (
-                                            <img src={photoNull} alt="unphu" width="120" height="120" style={{ borderRadius: "50%" }} />
-                                        )
-                                    }
-                                </div>
-                                <div className="m-2">
-                                    <div className="small text-color">Bienvenido:</div>
-                                    <div className="text-color">{name}</div>
-                                </div>
+                <div className='card bg-first-color mt-2'>
+                    <div className='card-body'>
+
+                        <div className="d-flex justify-content-center align-items-center m-1 mt-4">
+                            <div className="text-center m-2">
+                                {
+                                    data ? (
+                                        <img src={`data:image/png;base64,${data}`} alt="unphu" width="120" height="120" style={{ borderRadius: "50%" }} />
+                                    ) : (
+                                        <img src={photoNull} alt="unphu" width="120" height="120" style={{ borderRadius: "50%" }} />
+                                    )
+                                }
                             </div>
+                            <div className="m-2">
+                                <div className="small text-color">Bienvenido:</div>
+                                <div className="text-color">{name}</div>
+                            </div>
+                        </div>
 
-                            <div className="m-2 mt-4 text-nowrap">
+                        <div>
                             {userRol === 2 ? <SideAdmins /> : userRol === 4 ? <SideStudents /> : null}
-
-                                {message ? (
+                            {message ? (
+                                <ul className="nav flex-column mb-3">
                                     <li className="nav-item mt-3">
                                         <Link className="nav-link d-flex align-items-center text-white" to="/notifications">
                                             <i className="icon-second-color fas fa-bell align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Notificaciones</p>
                                         </Link>
-                                    </li>) : (
+                                    </li>
+                                </ul>
+                            ) : (
+                                <ul className="nav flex-column mb-3">
                                     <li className="nav-item mt-3">
                                         <Link className="nav-link d-flex align-items-center text-white" to="/notifications">
                                             <span className="icon-notification">
@@ -79,12 +82,13 @@ const Sidebar = () => {
                                             &nbsp; <p className="mb-0 ml-2">Notificaciones</p>
                                         </Link>
                                     </li>
-                                )}
-                            </div>
+                                </ul>
+                            )}
                         </div>
 
                     </div>
-                </ul>
+                </div>
+
             </div>
         </nav>
     );

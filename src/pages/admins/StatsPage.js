@@ -1,10 +1,10 @@
 import React from 'react'
-import Footer from '../../components/Footer'
-import Sidebar from '../../components/sidebar/Sidebar'
+import Charts from '../../components/admins/charts/Charts'
 import Header from '../../components/Header'
-import AdminPage from '../../components/admins/AdminPage'
+import Sidebar from '../../components/sidebar/Sidebar'
+import Footer from '../../components/Footer'
 
-const HomeAdmins = () => {
+const StatsPage = () => {
     return (
         <div>
             <Header />
@@ -12,7 +12,9 @@ const HomeAdmins = () => {
                 <div className="row">
                     <Sidebar />
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 right-col-size">
-                        <AdminPage />
+                        <div>
+                            <Charts />
+                        </div>
                     </main>
                 </div>
             </div>
@@ -21,4 +23,5 @@ const HomeAdmins = () => {
     )
 }
 
-export default HomeAdmins
+export default StatsPage
+

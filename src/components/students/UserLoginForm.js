@@ -56,7 +56,7 @@ const UserLoginForm = () => {
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="user" className="form-label">
-                        Matrícula
+                        Usuario
                     </label>
                     <input
                         type="text"

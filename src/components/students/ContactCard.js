@@ -2,9 +2,8 @@ import React from 'react'
 
 const ContactCard = ({data}) => {
     return (
-        <div>
-            <div className='card'>
-                <div className='card-body'>
+            <div className='card h-100'>
+                <div className='card-body h-100'>
                     <p className="card-subtitle text-muted m-2 mt-3">
                         <i className="fas fa-phone"></i>&nbsp; <b>Teléfono:</b> {data.Std_HomePhone}
                     </p>
@@ -18,8 +17,6 @@ const ContactCard = ({data}) => {
                     </div>
                 </div>
             </div>
-
-        </div>
     )
 }
 
