@@ -6,14 +6,14 @@ import LineChart from './LineChart'
 const Charts = () => {
     return (
         <div className='row'>
-            <div className='col-md-3'>
-                <PieChart />
-            </div>
-            <div className='col-md-3'>
+            <div>
                 <BarChart />
             </div>
-            <div className='col-md-3'>
+            <div >
                 <LineChart />
+            </div>
+            <div>
+                <PieChart />
             </div>
         </div>
     )

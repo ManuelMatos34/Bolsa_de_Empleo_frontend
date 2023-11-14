@@ -26,9 +26,9 @@ const PieChart = () => {
 
     return (
         <div className='card text-center mt-1'>
-            <div className='card-header'>
+            {/* <div className='card-header'>
                 <p className='m-1'>Grafico 1</p>
-            </div>
+            </div> */}
             <div className='card-body'>
                 <div className="container">
                     <Pie data={data} options={options} />

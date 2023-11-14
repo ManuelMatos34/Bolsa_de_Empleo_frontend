@@ -8,6 +8,7 @@ import { getUserCookies } from '../../../helpers/Helpers'
 import ExperienceModal from './ExperienceModal'
 import ViewCvModal from './ViewCvModal'
 import EditExperienceModal from './EditExperienceModal'
+import DeleteExperienceModal from './DeleteExperienceModal'
 
 const Modals = ({ data, dataCv, idExp }) => {
     const stdId = getUserCookies();
@@ -128,11 +129,12 @@ const Modals = ({ data, dataCv, idExp }) => {
 
     return (
         <div>
+            <DeleteExperienceModal />
             <StudentModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} setDataImg={setDataImg} />
             <DireccionModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} />
             <CvModal />
             <ContactModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} />
-            <ExperienceModal handleChangeExp={handleChangeExp} handlePostExp={handlePostExp}/>
+            <ExperienceModal handleChangeExp={handleChangeExp} handlePostExp={handlePostExp} />
             <ViewCvModal dataCv={dataCv} />
             <EditExperienceModal idExp={dataExpe} handleChangeExp={handleChangeExp} handlePutExp={handlePutExp} />
         </div>

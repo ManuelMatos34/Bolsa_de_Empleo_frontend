@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { authComp } from '../../services/services';
+import { messageAlert } from '../../helpers/Alerts';
+import { setIsAuthenticatedCookies, setUserCookies } from '../../helpers/Helpers';
 
 const CompLoginForm = () => {
+    const initialState = {
+        user: "",
+        pass: "",
+    };
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = useState(initialState);
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [id]: value }));
+    };
+
+    const resetForm = () => {
+        setFormData(initialState);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await authComp(formData.user, formData.pass);
+
+            if (response.data.message === "Datos incorrectos") {
+                messageAlert("Error", "Usuario o contraseña incorrectos", "error");
+                resetForm();
+                return;
+            }
+
+            setUserCookies(response.data);
+            setIsAuthenticatedCookies(true);
+            navigate("/homepage");
+
+            resetForm();
+        } catch (error) {
+            messageAlert("Error", error.response.data.message, "error");
+        }
+    };
+
     return (
         <div className="container">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="user" className="form-label">
                         Usuario
@@ -12,29 +54,25 @@ const CompLoginForm = () => {
                         type="text"
                         className="form-control"
                         id="user"
-                        name="user"
                         required
+                        onChange={handleInputChange}
+                        value={formData.user}
                         style={{ boxShadow: "none" }}
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">
+                    <label htmlFor="pass" className="form-label">
                         Contraseña
                     </label>
                     <input
                         type="password"
                         className="form-control"
-                        id="password"
-                        name="password"
+                        id="pass"
                         style={{ boxShadow: "none" }}
+                        onChange={handleInputChange}
+                        value={formData.pass}
                         required
                     />
-                </div>
-                <div className="mb-3 form-check">
-                    <input className="form-check-input" type="checkbox" id="invalidCheck" />
-                    <label className="form-check-label" htmlFor="invalidCheck">
-                        Recuérdame
-                    </label>
                 </div>
                 <div className="mb-3">
                     <p className="mb-0">No tienes una cuenta? <a href="/compregister">Regístrate aquí</a></p>
@@ -45,7 +83,7 @@ const CompLoginForm = () => {
                             width: '100%', backgroundColor: "#0D4671",
                             border: "none",
                         }}
-                        type="button"
+                        type="submit"
                         className="btn btn-primary"
 
                     >

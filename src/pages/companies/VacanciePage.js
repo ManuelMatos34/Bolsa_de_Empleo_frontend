@@ -1,10 +1,11 @@
 import React from 'react'
-import Charts from '../../components/admins/charts/Charts'
 import Header from '../../components/Header'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Footer from '../../components/Footer'
+import CompVanacies from '../../components/companies/CompVanacies'
+import VacanciesFilter from '../../components/companies/VacanciesFilter'
 
-const StatsPage = () => {
+const VacanciePage = () => {
     return (
         <div>
             <Header />
@@ -12,12 +13,11 @@ const StatsPage = () => {
                 <div className="row">
                     <Sidebar />
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 right-col-size">
-                        <div className='overflow-auto' style={{ maxHeight: "85vh" }}>
-                            <div className='card'>
-                                <div className='card-body'>
-                                <Charts />
-                                </div>
-                            </div>
+                        <div className='mt-1'>
+                            <VacanciesFilter />
+                        </div>
+                        <div className='mt-1'>
+                            <CompVanacies />
                         </div>
                     </main>
                 </div>
@@ -27,5 +27,4 @@ const StatsPage = () => {
     )
 }
 
-export default StatsPage
-
+export default VacanciePage

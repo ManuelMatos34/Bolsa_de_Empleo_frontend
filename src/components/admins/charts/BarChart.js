@@ -40,9 +40,9 @@ const BarChart = () => {
 
     return (
         <div className='card text-center mt-1'>
-            <div className='card-header'>
+            {/* <div className='card-header'>
                 <p className='m-1'>Grafico 2</p>
-            </div>
+            </div> */}
             <div className='card-body'>
                 <div className="container">
                     <Bar options={options} data={data} />

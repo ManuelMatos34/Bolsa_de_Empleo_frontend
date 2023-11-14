@@ -41,9 +41,9 @@ const LineChart = () => {
 
     return (
         <div className='card text-center mt-1'>
-            <div className='card-header'>
+            {/* <div className='card-header'>
                 <p className='m-1'>Grafico 3</p>
-            </div>
+            </div> */}
             <div className='card-body'>
                 <div className="container">
                     <Line options={options} data={data} />

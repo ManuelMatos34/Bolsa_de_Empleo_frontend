@@ -56,7 +56,7 @@ const ExperienceCard = ({ setIdExp }) => {
                                     <button onClick={() => handleGetExp(item.Exp_ID)} data-bs-toggle="modal" data-bs-target="#staticBackdropExperienceEdit" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light m-1 text-success">
                                         <i className="fas fa-edit"></i> {/* Icono de editar */}
                                     </button>
-                                    <button style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light m-1 text-danger">
+                                    <button data-bs-toggle="modal" data-bs-target="#staticBackdropDeleteExperience" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light m-1 text-danger">
                                         <i className="fas fa-trash-alt"></i> {/* Icono de eliminar */}
                                     </button>
                                 </div>

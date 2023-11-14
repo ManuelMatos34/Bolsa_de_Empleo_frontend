@@ -6,7 +6,7 @@ import { getImgEst } from "../../services/services";
 import photoNull from '../../assets/img/no image.png';
 import SideStudents from "./SideStudents";
 import SideAdmins from "./SideAdmins";
-
+import SideCompany from "./SideCompany";
 
 const Sidebar = () => {
     const [data, setData] = useState(null);
@@ -14,6 +14,8 @@ const Sidebar = () => {
     const dataUser = getUserCookies();
     const userRol = dataUser[0]?.Rol_ID;
     const message = true;
+
+    console.log("el rol del usuario", userRol);
 
     const getImg = async () => {
         try {
@@ -62,7 +64,7 @@ const Sidebar = () => {
                         </div>
 
                         <div>
-                            {userRol === 2 ? <SideAdmins /> : userRol === 4 ? <SideStudents /> : null}
+                            {userRol === 2 ? <SideAdmins /> : userRol === 4 ? <SideStudents /> : userRol === 3 ? <SideCompany /> : null}
                             {message ? (
                                 <ul className="nav flex-column mb-3">
                                     <li className="nav-item mt-3">

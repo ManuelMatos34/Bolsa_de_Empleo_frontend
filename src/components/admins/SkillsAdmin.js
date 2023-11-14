@@ -1,12 +1,16 @@
 import React from "react";
+import AdminModals from "./modals/AdminModals";
 
 const SkillsAdmin = () => {
   return (
     <div>
+      <AdminModals />
       <div className="card mb-5 p-4 pt-1">
-        <div style={{ border:"none" }} className="card-header bg-white d-flex justify-content-between align-items-center">
+        <div style={{ border: "none" }} className="card-header bg-white d-flex justify-content-between align-items-center">
           <h5 className="m-1 mt-0">Habilidades</h5>
           <button
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdropAddSkills"
             style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}
             className="btn btn-outline-secondary"
             type="button"
@@ -33,11 +37,17 @@ const SkillsAdmin = () => {
                 <td>Ing. Sistemas Computacionales</td>
                 <td>A</td>
                 <td>
-                  <button className="btn btn-success btn-sm m-1">
+                  <button
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdropEditSkills"
+                    className="btn btn-success btn-sm m-1">
                     <i className="fas fa-pencil-alt"></i>{" "}
                     {/* Icono para Editar */}
                   </button>
-                  <button className="btn btn-danger btn-sm m-1">
+                  <button
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdropDeleteSkills"
+                    className="btn btn-danger btn-sm m-1">
                     <i className="fas fa-trash-alt"></i>{" "}
                     {/* Icono para Eliminar */}
                   </button>

@@ -32,7 +32,6 @@ const SideAdmins = () => {
                 </li>
             </ul>
         </div>
-
     )
 }
 
