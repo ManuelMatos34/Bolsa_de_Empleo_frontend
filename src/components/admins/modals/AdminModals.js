@@ -4,6 +4,7 @@ import DeleteSkillModal from './DeleteSkillModal'
 import EditSkillModal from './EditSkillModal'
 import CancelCompModal from './CancelCompModal'
 import AcceptCompModal from './AcceptCompModal'
+import ConfigAdminModal from './ConfigAdminModal'
 
 const AdminModals = () => {
     return (
@@ -13,6 +14,7 @@ const AdminModals = () => {
             <EditSkillModal />
             <CancelCompModal />
             <AcceptCompModal />
+            <ConfigAdminModal />
         </div>
     )
 }

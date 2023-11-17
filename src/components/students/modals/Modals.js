@@ -9,6 +9,7 @@ import ExperienceModal from './ExperienceModal'
 import ViewCvModal from './ViewCvModal'
 import EditExperienceModal from './EditExperienceModal'
 import DeleteExperienceModal from './DeleteExperienceModal'
+import NoCvModal from './NoCvModal'
 
 const Modals = ({ data, dataCv, idExp }) => {
     const stdId = getUserCookies();
@@ -126,7 +127,6 @@ const Modals = ({ data, dataCv, idExp }) => {
             console.error("Error en la solicitud:", error);
         }
     };
-
     return (
         <div>
             <DeleteExperienceModal />
@@ -136,6 +136,9 @@ const Modals = ({ data, dataCv, idExp }) => {
             <ContactModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} />
             <ExperienceModal handleChangeExp={handleChangeExp} handlePostExp={handlePostExp} />
             <ViewCvModal dataCv={dataCv} />
+
+            <NoCvModal data={data} dataCv={dataCv}/>
+
             <EditExperienceModal idExp={dataExpe} handleChangeExp={handleChangeExp} handlePutExp={handlePutExp} />
         </div>
     )

@@ -32,6 +32,42 @@ export const filterJobs = (response, jobTitleFilter, contractTypeFilter, modalit
     return response;
 };
 
+export const filterSkills = (response, skillNameFilter, stateFilter, carFilter) => {
+
+    if (skillNameFilter) {
+        response = response.filter((skill) =>
+            skill.Skill.toLowerCase().includes(skillNameFilter.toLowerCase())
+        );
+    }
+    if (stateFilter) {
+        response = response.filter(
+            (skill) => skill.Skill_Status.toLowerCase() === stateFilter.toLowerCase()
+        );
+    }
+    if (carFilter) {
+        response = response.filter(
+            (skill) => skill.Ca_Description.replace(/[\r\n]/g, '').toLowerCase() === carFilter.toLowerCase()
+        );
+    }
+
+    return response;
+};
+
+export const filterComp = (response, nameFilter, approFilter) => {
+
+    if (nameFilter) {
+        response = response.filter((comp) =>
+            comp.Comp_Name.toLowerCase().includes(nameFilter.toLowerCase())
+        );
+    }
+    if (approFilter) {
+        response = response.filter(
+            (comp) => comp.User_CreationAproval === approFilter
+        );
+    }
+    return response;
+};
+
 
 export const setUserCookies = (user) => {
     // Establecer las cookies

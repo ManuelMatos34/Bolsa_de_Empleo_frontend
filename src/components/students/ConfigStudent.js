@@ -58,45 +58,47 @@ const ConfigStudent = () => {
 
     return (
         <div className='row' style={{ maxHeight: "25vh" }}>
-            {data ? (
-                <>
-                    <Modals data={data} dataCv={dataCv} idExp={idExp} />
-                    <div className='col-md-3 mt-2'>
-                        <StudentCard data={data} img={img} />
-                        <CvCard data={data} />
-                    </div>
-                    <div className='col-md-9'>
-                        <div className='col-md-12 mt-2'>
-                            <div className='row'>
-                                <div className='col-md-6'>
-                                    <DireccionCard data={data} />
+            {
+                data ? (
+                    <>
+                        <Modals data={data} dataCv={dataCv} idExp={idExp} />
+                        <div className='col-md-3 mt-2'>
+                            <StudentCard data={data} img={img} />
+                            <CvCard data={data} />
+                        </div>
+                        <div className='col-md-9'>
+                            <div className='col-md-12 mt-2'>
+                                <div className='row'>
+                                    <div className='col-md-6'>
+                                        <DireccionCard data={data} />
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <ContactCard data={data} />
+                                    </div>
                                 </div>
-                                <div className='col-md-6'>
-                                    <ContactCard data={data} />
+                            </div>
+                            <div className='col-md-12 mt-2'>
+                                <SkillsStudents />
+                            </div>
+                            <div className='col-md-12 mt-2 mb-5'>
+                                <ExperienceCard setIdExp={setIdExp} />
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <div className='card m-1'>
+                        <div className='card-body'>
+                            <div className="d-flex align-items-center">
+                                <p className='m-1'>Cargando...</p>
+                                <div className="spinner-border icon-color m-1" role="status">
+                                    <span className="visually-hidden"></span>
                                 </div>
                             </div>
                         </div>
-                        <div className='col-md-12 mt-2'>
-                            <SkillsStudents />
-                        </div>
-                        <div className='col-md-12 mt-2 mb-5'>
-                            <ExperienceCard setIdExp={setIdExp} />
-                        </div>
                     </div>
-                </>
-            ) : (
-                <div className='card m-1'>
-                    <div className='card-body'>
-                        <div className="d-flex align-items-center">
-                            <p className='m-1'>Cargando...</p>
-                            <div className="spinner-border icon-color m-1" role="status">
-                                <span className="visually-hidden"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }
 

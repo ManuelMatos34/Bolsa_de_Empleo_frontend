@@ -1,6 +1,11 @@
 import React from 'react'
 
-const FilterCompanies = () => {
+const FilterCompanies = ({
+    approve,
+    setApprove,
+    search,
+    setSearch
+}) => {
     return (
         <div className="card">
             <div className="card-body">
@@ -8,6 +13,8 @@ const FilterCompanies = () => {
                     <div className="col-12 col-md-4">
                         <div className="form-group">
                             <input
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
                                 style={{ boxShadow: "none" }}
                                 type="text"
                                 className="form-control"
@@ -17,15 +24,20 @@ const FilterCompanies = () => {
                     </div>
                     <div className="col-6 col-md-3">
                         <div className="input-group">
-                            <select style={{ boxShadow: "none" }} className="form-select">
+                            <select
+                                value={approve}
+                                onChange={(e) => setApprove(e.target.value)}
+                                style={{ boxShadow: "none" }} className="form-select"
+                            >
                                 <option value="">Elige una opcion</option>
-                                <option>Confirmadas</option>
-                                <option>Sin Confirmar</option>
+                                <option value="1">Confirmadas</option>
+                                <option value="0">Sin Confirmar</option>
                             </select>
                             <button
                                 style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}
                                 className="btn btn-outline-secondary"
                                 type="button"
+                                onClick={(e) => setApprove("")}
                             >
                                 <i style={{ color: "white" }} className="fas fa-times m-1"></i>
                             </button>

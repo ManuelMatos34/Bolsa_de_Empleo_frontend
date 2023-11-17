@@ -14,9 +14,6 @@ const Sidebar = () => {
     const dataUser = getUserCookies();
     const userRol = dataUser[0]?.Rol_ID;
     const message = true;
-
-    console.log("el rol del usuario", userRol);
-
     const getImg = async () => {
         try {
             const response = await getImgEst(dataUser[0]?.Std_ID);
@@ -64,7 +61,7 @@ const Sidebar = () => {
                         </div>
 
                         <div>
-                            {userRol === 2 ? <SideAdmins /> : userRol === 4 ? <SideStudents /> : userRol === 3 ? <SideCompany /> : null}
+                            {userRol === 2 ? <SideAdmins /> : userRol === 4 ? <SideStudents /> : userRol === 3 ? <SideCompany /> : userRol === 6 ? <SideStudents /> : null}
                             {message ? (
                                 <ul className="nav flex-column mb-3">
                                     <li className="nav-item mt-3">

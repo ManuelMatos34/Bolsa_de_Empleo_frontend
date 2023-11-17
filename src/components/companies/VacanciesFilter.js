@@ -36,6 +36,8 @@ const VacanciesFilter = () => {
                             style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}
                             className="btn btn-outline-secondary"
                             type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#staticBackdropAddVancancie"
                         >
                             <i style={{ color: "white" }} className="fas fa-plus m-1"></i>
                         </button>

@@ -14,6 +14,8 @@ import CompaniesPages from './pages/admins/CompaniesPages'
 import StatsPage from './pages/admins/StatsPage';
 import HomePage from './pages/companies/HomePage';
 import VacanciePage from './pages/companies/VacanciePage';
+import PostulantPage from './pages/companies/PostulantPage';
+import AdminConfigPage from './pages/admins/AdminConfigPage';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
               {/* Empresas routes */}
               <Route path="/homepage" element={<HomePage />} />
               <Route path="/vacanciescomp" element={<VacanciePage />} />
+              <Route path="/postulantcomp" element={<PostulantPage />} />
+              <Route path="/configcomp" element={< AdminConfigPage/>} />
             </Route>
             
           </Routes>

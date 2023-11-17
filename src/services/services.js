@@ -30,6 +30,14 @@ export const getOfeByCa = (Id) => {
     return axios.get(`http://localhost:4000/ofertaByCa/${Id}`);
 };
 
+export const getOfeByComp = (Id) => {
+    return axios.get(`http://localhost:4000/ofertasbycomp/${Id}`);
+};
+
+export const getPostulantByJob = (Id) => {
+    return axios.get(`http://localhost:4000/getAllDataBySoli/${Id}`);
+};
+
 export const getOfeById = (Id) => {
     return axios.get(`http://localhost:4000/oferta/${Id}`);
 };
@@ -115,6 +123,14 @@ export const setCvEst = async (id, cvv) => {
 
 export const getCvEst = (Id) => {
     return axios.get(`http://localhost:4000/cv/${Id}`);
+};
+
+export const getAllSkills = () => {
+    return axios.get(`http://localhost:4000/habilidades`);
+};
+
+export const getAllcompanies = () => {
+    return axios.get(`http://localhost:4000/empresas`);
 };
 
 export const getExpByEst = (Id) => {

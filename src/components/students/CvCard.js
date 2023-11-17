@@ -5,7 +5,7 @@ const CvCard = ({ data }) => {
         <div className='card mt-2'>
             <div className='card-body'>
                 <div className="card-subtitle text-muted m-2 mt-3">
-                    <i className="far fa-file-pdf"></i> &nbsp;<b>Nombre archivo:</b> {
+                    <i className="far fa-file-pdf"></i> &nbsp;<b>CV:</b> {
                         data.Cv_ID ?
                             (
                                 <div className='d-flex align-items-center card-text text-success'>

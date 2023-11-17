@@ -30,6 +30,11 @@ const SideAdmins = () => {
                         <i className="icon-second-color fas fa-chart-bar align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Estadísticas</p>
                     </Link>
                 </li>
+                <li className="nav-item mt-3">
+                    <Link className="nav-link d-flex align-items-center text-white" to="/configcomp">
+                        <i className="icon-second-color fas fa-cogs align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Configuración</p>
+                    </Link>
+                </li>
             </ul>
         </div>
     )

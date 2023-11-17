@@ -11,6 +11,7 @@ const JobVacancies = () => {
     const [data, setData] = useState(null);
     const stdId = getUserCookies();
     const userCa = stdId[0].Ca_ID;
+    
     const [jobTitleFilter, setJobTitleFilter] = useState('');
     const [contractTypeFilter, setContractTypeFilter] = useState('');
     const [modalityFilter, setModalityFilter] = useState('');
