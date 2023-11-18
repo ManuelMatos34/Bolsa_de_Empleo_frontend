@@ -1,6 +1,11 @@
 import React from 'react'
 
-const VacanciesFilter = () => {
+const VacanciesFilter = ({
+    searchJob,
+    setSearchJob,
+    status,
+    setStatus
+}) => {
     return (
         <div className="card">
             <div className="card-body">
@@ -8,6 +13,8 @@ const VacanciesFilter = () => {
                     <div className="col-12 col-md-4">
                         <div className="form-group">
                             <input
+                                value={searchJob || ''}
+                                onChange={(e) => setSearchJob(e.target.value)}
                                 style={{ boxShadow: "none" }}
                                 type="text"
                                 className="form-control"
@@ -17,12 +24,17 @@ const VacanciesFilter = () => {
                     </div>
                     <div className="col-6 col-md-3">
                         <div className="input-group">
-                            <select style={{ boxShadow: "none" }} className="form-select">
+                            <select
+                                value={status || ''}
+                                onChange={(e) => setStatus(e.target.value)}
+                                style={{ boxShadow: "none" }} className="form-select"
+                            >
                                 <option value="">Elige una opcion</option>
-                                <option>Confirmadas</option>
-                                <option>Sin Confirmar</option>
+                                <option value="1">Vigentes</option>
+                                <option value="0">Finalizadas</option>
                             </select>
                             <button
+                                onClick={(e) => setStatus("")}
                                 style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}
                                 className="btn btn-outline-secondary"
                                 type="button"

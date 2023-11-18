@@ -100,6 +100,14 @@ export const getImgEst = (Id) => {
     return axios.get(`http://localhost:4000/getEstImg/${Id}`);
 };
 
+export const getUserById = (Id) => {
+    return axios.get(`http://localhost:4000/usuarios/${Id}`);
+};
+
+export const getCompById = (Id) => {
+    return axios.get(`http://localhost:4000/empresas/${Id}`);
+};
+
 export const setImgEst = async (id, image) => {
     const img = new FormData();
     img.append('img', image);

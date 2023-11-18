@@ -16,7 +16,7 @@ const SideCompany = () => {
                     </Link>
                 </li>
                 <li className="nav-item mt-3">
-                    <Link className="nav-link d-flex align-items-center text-white" to="/configuracion">
+                    <Link className="nav-link d-flex align-items-center text-white" to="/configcomp">
                         <i className="fas fa-cogs icon-alusivo align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Configuración</p>
                     </Link>
                 </li>

@@ -77,8 +77,8 @@ const PostulantCard = ({ data }) => {
                     </div>
                 )}
                 <div className='container text-center'>
-                    <button className='btn btn-primary btn-sm m-1'>Aceptar</button>
-                    <button className='btn btn-danger btn-sm m-1'>Denegar</button>
+                    <button style={{ border: "none" }} className='btn btn-danger btn-sm m-1'>Denegar</button>
+                    <button style={{ backgroundColor: "#0C4770", border: "none" }} className='btn btn-primary btn-sm m-1'>Aceptar</button>
                 </div>
             </div>
         </div>

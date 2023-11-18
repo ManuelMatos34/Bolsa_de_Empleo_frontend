@@ -14,25 +14,26 @@ const Sidebar = () => {
     const dataUser = getUserCookies();
     const userRol = dataUser[0]?.Rol_ID;
     const message = true;
-    const getImg = async () => {
-        try {
-            const response = await getImgEst(dataUser[0]?.Std_ID);
-            if (response && response.data && response.data.Img) {
-                if (response.data.Img.data === null || response.data.Img.data === undefined || response.data.Img.data === "") {
-                    setData(false);
-                } else {
-                    setData(convertImage(response.data.Img.data));
-                }
-            } else {
-                setData(null);
-            }
-        } catch (error) {
-            // Error handling
-            console.error("error", error);
-        }
-    };
 
     useEffect(() => {
+        const getImg = async () => {
+            try {
+                const response = await getImgEst(dataUser[0]?.Std_ID);
+                if (response && response.data && response.data.Img) {
+                    if (response.data.Img.data === null || response.data.Img.data === undefined || response.data.Img.data === "") {
+                        setData(false);
+                    } else {
+                        setData(convertImage(response.data.Img.data));
+                    }
+                } else {
+                    setData(null);
+                }
+            } catch (error) {
+                // Error handling
+                console.error("error", error);
+            }
+        };
+
         setName(getUserName(dataUser));
         getImg();
     }, []);

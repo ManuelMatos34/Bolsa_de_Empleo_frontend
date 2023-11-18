@@ -65,32 +65,26 @@ const EditVanacieModal = () => {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form>
-            <div className="modal-body">
+            <div className="modal-body row">
               {formFields.map((field, index) => (
-                <div key={index} className="mb-3">
+                <div key={index} className="mb-3 col-md-6">
                   <label className="form-label">{field.label}</label>
                   {field.type === "textarea" ? (
                     <textarea className="form-control" name={field.name} required={field.required}></textarea>
                   ) : field.type === "select" ? (
                     <select className="form-select" name={field.name} required={field.required}>
-                      <option>Seleccione una Opcion</option>
-                      {
-                        field.options === 'contratos' ?
-                          (
-                            Object.values(c).map((option) => (
-                              <option key={option} value={option}>
-                                {option}
-                              </option>
-                            ))
-                          ) : (
-
-                            Object.values(m).map((option) => (
-                              <option key={option} value={option}>
-                                {option}
-                              </option>
-                            )))
-                      }
-
+                      <option>Seleccione una Opción</option>
+                      {field.options === 'contratos' ?
+                        Object.values(c).map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        )) :
+                        Object.values(m).map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
                     </select>
                   ) : (
                     <input type={field.type} className="form-control" name={field.name} required={field.required} />
@@ -103,7 +97,7 @@ const EditVanacieModal = () => {
                 Cerrar
               </button>
               <button style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }} type="submit" className="btn btn-primary btn-sm">
-                Agregar
+                Guardar
               </button>
             </div>
           </form>

@@ -16,6 +16,7 @@ import HomePage from './pages/companies/HomePage';
 import VacanciePage from './pages/companies/VacanciePage';
 import PostulantPage from './pages/companies/PostulantPage';
 import AdminConfigPage from './pages/admins/AdminConfigPage';
+import CofigCompPage from './pages/companies/CofigCompPage';
 
 function App() {
   return (
@@ -35,20 +36,22 @@ function App() {
               <Route path="/jobvacancies" element={<JobVacancies />} />
               <Route path="/studentapplications" element={<StudentsApplications />} />
               <Route path="/notifications" element={<Notifications />} />
-                
+
               {/* Admin routes */}
               <Route path="/homeadmins" element={<HomeAdmins />} />
               <Route path="/skills" element={<SkillsPage />} />
               <Route path="/companiesadmin" element={<CompaniesPages />} />
               <Route path="/statspage" element={<StatsPage />} />
+              <Route path="/configadmin" element={< AdminConfigPage />} />
 
               {/* Empresas routes */}
               <Route path="/homepage" element={<HomePage />} />
               <Route path="/vacanciescomp" element={<VacanciePage />} />
               <Route path="/postulantcomp" element={<PostulantPage />} />
-              <Route path="/configcomp" element={< AdminConfigPage/>} />
+              <Route path="/configcomp" element={<CofigCompPage />} />
+
             </Route>
-            
+
           </Routes>
         </BrowserRouter>
       </GlobalContext>

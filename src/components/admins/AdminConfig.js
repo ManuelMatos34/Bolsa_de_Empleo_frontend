@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photoNull from '../../assets/img/no image.png';
 import AdminModals from './modals/AdminModals';
+import { getUserById } from '../../services/services';
+import { getUserCookies } from '../../helpers/Helpers';
 
 const AdminConfig = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const getUser = async () => {
+            const userId = getUserCookies();
+            try {
+                let getResponse = await getUserById(userId[0].User_ID);
+                let response = getResponse.data;
+                setData(response);
+            } catch (error) {
+                // Manejo de errores
+                console.error("error", error);
+                setData(null);
+            }
+        };
+        getUser();
+    }, []);
+
     return (
         <div className='container w-50'>
             <AdminModals />
@@ -14,13 +34,10 @@ const AdminConfig = () => {
                         </div>
                         <div className='col-lg-8 col-md-6 col-sm-12'>
                             <p className="card-subtitle text-muted m-2">
-                                <i className="fas fa-user"></i>&nbsp; <b>Nombre:</b> Juan Pérez
+                                <i className="fas fa-user"></i>&nbsp; <b>Nombre:</b> {data?.User_Name}
                             </p>
                             <p className="card-subtitle text-muted m-2 mt-3">
-                                <i className="fas fa-envelope"></i>&nbsp; <b>Correo Personal:</b> juan.perez@example.com
-                            </p>
-                            <p className="card-subtitle text-muted m-2 mt-3">
-                                <i className="fas fa-user-tag"></i>&nbsp; <b>Rol:</b> Usuario Registrado
+                                <i className="fas fa-envelope"></i>&nbsp; <b>Correo Personal:</b> {data?.User_Email}
                             </p>
                         </div>
                     </div>

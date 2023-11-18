@@ -9,7 +9,6 @@ import { getAllSkills } from '../../services/services'
 
 const SkillsPage = () => {
     const [data, setData] = useState(null);
-
     const [skillNameFilter, setSkillNameFilter] = useState('');
     const [stateFilter, setStateFilter] = useState('');
     const [carFilter, setCarFilter] = useState('');
@@ -27,8 +26,6 @@ const SkillsPage = () => {
         };
         getSkills();
     }, [skillNameFilter, stateFilter, carFilter]);
-
-    console.log(data);
 
     return (
         <div>

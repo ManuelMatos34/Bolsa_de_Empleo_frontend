@@ -13,7 +13,7 @@ const FilterCompanies = ({
                     <div className="col-12 col-md-4">
                         <div className="form-group">
                             <input
-                                value={search}
+                                value={search || ''}
                                 onChange={(e) => setSearch(e.target.value)}
                                 style={{ boxShadow: "none" }}
                                 type="text"
@@ -25,7 +25,7 @@ const FilterCompanies = ({
                     <div className="col-6 col-md-3">
                         <div className="input-group">
                             <select
-                                value={approve}
+                                value={approve || ''}
                                 onChange={(e) => setApprove(e.target.value)}
                                 style={{ boxShadow: "none" }} className="form-select"
                             >

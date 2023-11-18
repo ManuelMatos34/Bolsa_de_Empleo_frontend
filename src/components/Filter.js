@@ -19,7 +19,7 @@ const Filter = ({
                                 type="text"
                                 className="form-control"
                                 placeholder="Buscar..."
-                                value={jobTitleFilter}
+                                value={jobTitleFilter || ''}
                                 onChange={(e) => setJobTitleFilter(e.target.value)}
                             />
                         </div>
@@ -29,7 +29,7 @@ const Filter = ({
                             <select
                                 style={{ boxShadow: "none" }}
                                 className="form-select"
-                                value={contractTypeFilter}
+                                value={contractTypeFilter || ''}
                                 onChange={(e) => setContractTypeFilter(e.target.value)}
                             >
                                 <option value="">Tipo contrato</option>

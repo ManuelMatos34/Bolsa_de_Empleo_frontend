@@ -1,33 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import VacancieDescription from './VacancieDescription';
-import { getOfeByComp } from '../../services/services';
-import { getUserCookies } from '../../helpers/Helpers';
 
-const CompVanacies = () => {
-    const [data, setData] = useState(null);
+const CompVanacies = ({data}) => {
     const [dataDescription, setDataDescription] = useState(null);
-
-    const dataUser = getUserCookies();
-    const compId = dataUser[0]?.Comp_ID;
-
-    useEffect(() => {
-        const getOfByComp = async () => {
-            try {
-                let getResponse = await getOfeByComp(compId);
-                let response = getResponse.data;
-
-                if (response.message === "Registro no encontrado") {
-                    response = null;
-                }
-                setData(response);
-            } catch (error) {
-                // Manejo de errores
-                setData(null);
-            }
-        };
-        getOfByComp();
-    }, []);
-
     const handleToDescription = async (id) => {
         const job = data.find(item => item.Job_ID === id);
         if (job) {

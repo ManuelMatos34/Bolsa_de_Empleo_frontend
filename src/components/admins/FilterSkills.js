@@ -19,7 +19,7 @@ const FilterSkills = ({
                 type="text"
                 className="form-control"
                 placeholder="Buscar..."
-                value={skillNameFilter}
+                value={skillNameFilter || ''}
                 onChange={(e) => setSkillNameFilter(e.target.value)}
               />
             </div>
@@ -27,7 +27,7 @@ const FilterSkills = ({
           <div className="col-6 col-md-3">
             <div className="input-group">
               <select
-                value={stateFilter}
+                value={stateFilter || ''}
                 onChange={(e) => setStateFilter(e.target.value)}
                 style={{ boxShadow: "none" }}
                 className="form-select"
@@ -50,7 +50,7 @@ const FilterSkills = ({
           <div className="col-6 col-md-4">
             <div className="input-group">
               <select
-                value={carFilter}
+                value={carFilter || ''}
                 onChange={(e) => setCarFilter(e.target.value)}
                 style={{ boxShadow: "none" }} className="form-select">
                 <option value="">Carrera</option>

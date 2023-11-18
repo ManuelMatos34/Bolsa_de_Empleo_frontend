@@ -32,6 +32,22 @@ export const filterJobs = (response, jobTitleFilter, contractTypeFilter, modalit
     return response;
 };
 
+export const filterJobsComp = (response, jobTitleFilter, statusFilter) => {
+
+    if (jobTitleFilter) {
+        response = response.filter((job) =>
+            job.Job_Title.toLowerCase().includes(jobTitleFilter.toLowerCase())
+        );
+    }
+    if (statusFilter) {
+        response = response.filter(
+            (job) => job.Job_Status === statusFilter
+        );
+    }
+
+    return response;
+};
+
 export const filterSkills = (response, skillNameFilter, stateFilter, carFilter) => {
 
     if (skillNameFilter) {
@@ -185,6 +201,7 @@ export const getUserName = (dataUser) => {
         return dataUser[0].Std_FirstName + " " + dataUser[0]?.Std_SecondName + " " + dataUser[0]?.Std_LastName;
     } else if (dataUser[0]?.User_Name !== undefined) {
         return dataUser[0].User_Name;
+    } else if (dataUser[0]?.Comp_Name !== undefined) {
+        return dataUser[0].Comp_Name;
     }
-    return null;
-}
+};

@@ -136,9 +136,7 @@ const Modals = ({ data, dataCv, idExp }) => {
             <ContactModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} />
             <ExperienceModal handleChangeExp={handleChangeExp} handlePostExp={handlePostExp} />
             <ViewCvModal dataCv={dataCv} />
-
             <NoCvModal data={data} dataCv={dataCv}/>
-
             <EditExperienceModal idExp={dataExpe} handleChangeExp={handleChangeExp} handlePutExp={handlePutExp} />
         </div>
     )

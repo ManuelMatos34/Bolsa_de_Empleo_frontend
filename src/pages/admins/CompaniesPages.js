@@ -9,7 +9,6 @@ import { filterComp } from '../../helpers/Helpers'
 
 const CompaniesPages = () => {
     const [data, setData] = useState(null);
-
     const [approve, setApprove] = useState(null);
     const [search, setSearch] = useState(null);
 
