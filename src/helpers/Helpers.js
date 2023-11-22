@@ -205,3 +205,27 @@ export const getUserName = (dataUser) => {
         return dataUser[0].Comp_Name;
     }
 };
+
+export const dateDifference = (startDate, endDate) => {
+    // Convert the date strings to Date objects
+    const start = new Date(startDate + "-01");
+    const end = new Date(endDate + "-01");
+
+    // Calculate the difference in months
+    const monthsDifference = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+
+    // Extract years and remaining months
+    const years = Math.floor(monthsDifference / 12);
+    const months = monthsDifference % 12;
+
+    // Return the result
+    if (years > 0 && months > 0) {
+        return `${years} ${years === 1 ? 'año' : 'años'}, ${months} ${months === 1 ? 'mes' : 'meses'}`;
+    } else if (years > 0) {
+        return `${years} ${years === 1 ? 'año' : 'años'}`;
+    } else if (months > 0) {
+        return `${months} ${months === 1 ? 'mes' : 'meses'}`;
+    } else {
+        return 'son iguales';
+    }
+}

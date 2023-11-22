@@ -72,7 +72,6 @@ const Modals = ({ data, dataCv, idExp }) => {
             ...prevData,
             [id]: value,
         }));
-        console.log(dataExpe);
     };
 
     const handlePutStd = async () => {
@@ -129,7 +128,7 @@ const Modals = ({ data, dataCv, idExp }) => {
     };
     return (
         <div>
-            <DeleteExperienceModal />
+            <DeleteExperienceModal idExp={dataExpe}/>
             <StudentModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} setDataImg={setDataImg} />
             <DireccionModal formData={formData} handleChange={handleChange} handlePutStd={handlePutStd} />
             <CvModal />

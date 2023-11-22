@@ -22,67 +22,65 @@ const ConfigComp = () => {
         };
         getUser();
     }, []);
-    
+
     return (
-        <div className='container'>
+        <div className='container w-75'>
             <CompanyModals />
             <div className='card'>
                 <div className='card-body'>
-                    <div className='row'>
+                    <h5 className='card-title text-center'>Configuración de Empresa</h5>
+                    <div className='row mt-3'>
                         <div className='col-lg-4 col-md-6 col-sm-12 text-center'>
-                            <img src={photoNull} alt="Imagen del usuario" className="img-fluid" />
+                            <img src={photoNull} alt="Imagen del usuario" className="img-fluid rounded-circle" />
                         </div>
                         <div className='col-lg-8 col-md-6 col-sm-12'>
                             <div className="row">
                                 <div className="col-md-6">
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-user"></i>&nbsp; <b>Nombre: {data?.Comp_Name}</b>
+                                        <i className="fas fa-user"></i>&nbsp; <b>Nombre Empresa: </b>{data?.Comp_Name}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-envelope"></i>&nbsp; <b>Correo usuario: {data?.User_Email}</b>
+                                        <i className="fas fa-envelope"></i>&nbsp; <b>Correo usuario: </b>{data?.User_Email}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-building"></i>&nbsp; <b>Descripción de la Empresa: {data?.Comp_Description}</b>
+                                        <i className="fas fa-building"></i>&nbsp; <b>Descripción de la Empresa: </b>{data?.Comp_Description}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-phone"></i>&nbsp; <b>Teléfono de la Empresa: {data?.Comp_Telephone}</b>
+                                        <i className="fas fa-phone"></i>&nbsp; <b>Teléfono de la Empresa: </b>{data?.Comp_Telephone}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-at"></i>&nbsp; <b>Correo de la Empresa: {data?.Comp_EmailAddress}</b>
-                                    </p>
-                                    <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-globe"></i>&nbsp; <b>Sitio Web: {data?.Comp_Website}</b>
+                                        <i className="fas fa-globe"></i>&nbsp; <b>Sitio Web:</b> {data?.Comp_Website}
                                     </p>
                                 </div>
                                 <div className="col-md-6">
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-road"></i>&nbsp; <b>Primera Calle:{data?.Comp_FirstStreet}</b>
+                                        <i className="fas fa-road"></i>&nbsp; <b>Direccion 1:</b>{data?.Comp_FirstStreet}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-road"></i>&nbsp; <b>Segunda Calle: {data?.Comp_SecondStreet}</b>
+                                        <i className="fas fa-road"></i>&nbsp; <b>Direccion 2: </b>{data?.Comp_SecondStreet}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-city"></i>&nbsp; <b>Ciudad: {data?.Comp_City}</b>
+                                        <i className="fas fa-city"></i>&nbsp; <b>Ciudad:</b> {data?.Comp_City}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-flag"></i>&nbsp; <b>Estado: {data?.Comp_State}</b>
+                                        <i className="fas fa-mail-bulk"></i>&nbsp; <b>Código Postal:</b> {data?.Comp_PostalCode}
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
-                                        <i className="fas fa-mail-bulk"></i>&nbsp; <b>Código Postal: {data?.Comp_PostalCode}</b>
+                                        <i className="fas fa-at"></i>&nbsp; <b>Correo de la Empresa:</b> {data?.Comp_EmailAddress}
                                     </p>
-                                    <p className="card-subtitle text-muted mt-3">
+
+                                    {/* <p className="card-subtitle text-muted mt-3">
                                         <i className="fas fa-user-circle"></i>&nbsp; <b>Contacto Clave: {data?.Comp_KeyContact}</b>
                                     </p>
                                     <p className="card-subtitle text-muted mt-3">
                                         <i className="fas fa-phone"></i>&nbsp; <b>Teléfono de Contacto: {data?.Comp_KYTelephone}</b>
-                                    </p>
-
+                                    </p> */}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='m-1' style={{ position: 'absolute', top: '0', right: '0' }}>
+                <div className='m-1 text-end' style={{ backgroundColor: "#FFFFFF", border: "none" }}>
                     <button data-bs-toggle="modal" data-bs-target="#staticBackdropEditCompConfig" style={{ backgroundColor: "#FFFFFF", border: "none" }} className="btn btn-light">
                         <i className="fas fa-cog"></i> {/* Ícono de tuerca */}
                     </button>

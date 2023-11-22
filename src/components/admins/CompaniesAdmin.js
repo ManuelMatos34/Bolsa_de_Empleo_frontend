@@ -22,10 +22,30 @@ const CompaniesAdmin = ({ data }) => {
                     data.map((company) => (
                         <div key={company.Comp_ID} className="card m-1 card-style">
                             <div className="card-body">
-                                <h6 className="card-subtitle text-muted m-1">
-                                    <b>{company.Comp_Name}</b>
-                                </h6>
-                                <button onClick={() => handleToDescription(company.Comp_ID)} style={{ backgroundColor: "#0C4770", border: "none" }} type="button" className="btn btn-primary btn-sm m-1 mt-2">Más Info</button>
+                                <div className="row align-items-center">
+                                    <div className="col-md-4">
+                                        <h6 className="card-subtitle text-muted m-1">
+                                            <b>{company.Comp_Name}</b>
+                                        </h6>
+                                    </div>
+                                    <div className="col-md-6 d-flex justify-content-end align-items-center">
+                                        {
+                                            company.User_CreationAproval === "1" ? (
+                                                <i className="fas fa-check fa-2x icon-color"></i>
+                                            ) : company.User_CreationAproval === "0" ? (
+                                                <i className="fas fa-ban fa-2x icon-color"></i>
+                                            ) : (
+                                                <i className="fas fa-exclamation-triangle fa-2x icon-color"></i>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+
+                                <div className="row mt-2">
+                                    <div className="col-md-12">
+                                        <button onClick={() => handleToDescription(company.Comp_ID)} style={{ backgroundColor: "#0C4770", border: "none" }} type="button" className="btn btn-primary btn-sm m-1">Más Info</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))

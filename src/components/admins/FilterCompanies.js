@@ -30,8 +30,9 @@ const FilterCompanies = ({
                                 style={{ boxShadow: "none" }} className="form-select"
                             >
                                 <option value="">Elige una opcion</option>
-                                <option value="1">Confirmadas</option>
-                                <option value="0">Sin Confirmar</option>
+                                <option value="1">Aprovadas</option>
+                                <option value="0">Rechazadas</option>
+                                <option value="2">Pendientes</option>
                             </select>
                             <button
                                 style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}

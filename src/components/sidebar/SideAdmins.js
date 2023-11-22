@@ -20,11 +20,11 @@ const SideAdmins = () => {
                         <i className="icon-second-color fas fa-building align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Empresas</p>
                     </Link>
                 </li>
-                <li className="nav-item mt-3">
+                {/* <li className="nav-item mt-3">
                     <Link className="nav-link d-flex align-items-center text-white" to="/ratings">
                         <i className="icon-second-color fas fa-star align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Calificaciones</p>
                     </Link>
-                </li>
+                </li> */}
                 <li className="nav-item mt-3">
                     <Link className="nav-link d-flex align-items-center text-white" to="/statspage">
                         <i className="icon-second-color fas fa-chart-bar align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Estadísticas</p>

@@ -24,7 +24,7 @@ const FilterSkills = ({
               />
             </div>
           </div>
-          <div className="col-6 col-md-3">
+          {/* <div className="col-6 col-md-3">
             <div className="input-group">
               <select
                 value={stateFilter || ''}
@@ -46,7 +46,7 @@ const FilterSkills = ({
                 <i style={{ color: "white" }} className="fas fa-times m-1"></i>
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="col-6 col-md-4">
             <div className="input-group">
               <select

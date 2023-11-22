@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PostulantCard from './PostulantCard'
-import { convertImage } from '../../helpers/Helpers';
+import { convertImage, dateDifference } from '../../helpers/Helpers';
 import { getCvEst, getExpByEst } from '../../services/services';
 import { postEstuxhabilidades } from '../../services/services';
 
@@ -94,7 +94,7 @@ const PostulantInfo = ({ data }) => {
                                         <div key={item.Exp_ID} className='m-3' style={{ position: 'relative' }}>
                                             <h5 className="mb-0">{item.Position}</h5>
                                             <p className="mb-0">{item.Company} · {item.ContractType}</p>
-                                            <p className="mb-0">{item.InitiaDate} - {item.EndDate} · 3 meses</p>
+                                            <p className="mb-0">{item.InitiaDate} - {item.EndDate} · {dateDifference(item.InitiaDate,item.EndDate)}</p>
                                             <p className="mb-0">{item.Country} · {item.Modality}</p>
                                         </div>
                                     ))
@@ -104,7 +104,6 @@ const PostulantInfo = ({ data }) => {
                                     </div>
                                 )}
                             </div>
-
                         </div>
                     </div>
                 </div>

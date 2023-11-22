@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = () => {
+const LineChart = ({ dataOfer }) => {
     ChartJS.register(
         CategoryScale,
         LinearScale,
@@ -21,7 +21,20 @@ const LineChart = () => {
         Tooltip,
         Legend
     );
-    const labels = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+    const labels = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+    ];
 
     const options = {
         responsive: true
@@ -31,19 +44,53 @@ const LineChart = () => {
         labels,
         datasets: [
             {
-                label: 'Dataset 1',
-                data: [1, 5, 7, 4, 2],
-                borderColor: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
-                backgroundColor: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
-            }
+                label: "Data",
+                data: labels.map((label) => {
+                    const matchingItem = dataOfer ? dataOfer.find((item) => {
+                        const monthTranslations = {
+                            "Enero": "January",
+                            "Febrero": "February",
+                            "Marzo": "March",
+                            "Abril": "April",
+                            "Mayo": "May",
+                            "Junio": "June",
+                            "Julio": "July",
+                            "Agosto": "August",
+                            "Septiembre": "September",
+                            "Octubre": "October",
+                            "Noviembre": "November",
+                            "Diciembre": "December",
+                        };
+
+                        return item.Month === monthTranslations[label];
+                    }) : null;
+
+                    return matchingItem ? matchingItem.NumOfertasRegistradas : 0;
+                }),
+                backgroundColor: [
+                    "#FFB6C1",
+                    "#FFD700",
+                    "#FFA07A",
+                    "#98FB98",
+                    "#ADD8E6",
+                    "#FFC0CB",
+                    "#87CEEB",
+                    "#FFDAB9",
+                    "#FFE4E1",
+                    "#F0E68C",
+                    "#AFEEEE",
+                    "#FFEFD5",
+                ],
+                borderColor: ['Red'],
+            },
         ],
     };
 
     return (
         <div className='card text-center mt-1'>
-            {/* <div className='card-header'>
-                <p className='m-1'>Grafico 3</p>
-            </div> */}
+            <div className='card-header'>
+                <p className='m-1'>Ofertas creadas por mes</p>
+            </div>
             <div className='card-body'>
                 <div className="container">
                     <Line options={options} data={data} />

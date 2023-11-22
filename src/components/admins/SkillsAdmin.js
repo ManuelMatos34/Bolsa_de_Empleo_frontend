@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminModals from "./modals/AdminModals";
+import { getSkillById } from "../../services/services";
 
 const SkillsAdmin = ({ data }) => {
+  const [selected, setSelected] = useState(null);
+
+  const getSkill = async (id) => {
+    try {
+      let getResponse = await getSkillById(id);
+      let response = getResponse.data;
+      setSelected(response);
+    } catch (error) {
+      // Manejo de errores
+      setSelected(null);
+    }
+  };
+
   return (
     <div>
-      <AdminModals />
+      <AdminModals data={data} selected={selected}/>
       <div className="card mb-5 p-4 pt-1">
-        <div style={{ border: "none" }} className="card-header bg-white d-flex justify-content-between align-items-center">
+        <div
+          style={{ border: "none" }}
+          className="card-header bg-white d-flex justify-content-between align-items-center"
+        >
           <h5 className="m-1 mt-0">Habilidades</h5>
           <button
             data-bs-toggle="modal"
@@ -26,7 +43,6 @@ const SkillsAdmin = ({ data }) => {
                 <th scope="col">#</th>
                 <th scope="col">Habilidad</th>
                 <th scope="col">Carrera</th>
-                <th scope="col">Estado</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -37,12 +53,12 @@ const SkillsAdmin = ({ data }) => {
                     <th scope="row">{skill.Skill_ID}</th>
                     <td>{skill.Skill}</td>
                     <td>{skill.Ca_Description}</td>
-                    <td>{skill.Skill_Status}</td>
                     <td>
                       <button
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdropEditSkills"
                         className="btn btn-success btn-sm m-1"
+                        onClick={() => getSkill(skill.Skill_ID)}
                       >
                         <i className="fas fa-pencil-alt"></i>{" "}
                         {/* Icono para Editar */}
@@ -51,6 +67,7 @@ const SkillsAdmin = ({ data }) => {
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdropDeleteSkills"
                         className="btn btn-danger btn-sm m-1"
+                        onClick={() => getSkill(skill.Skill_ID)}
                       >
                         <i className="fas fa-trash-alt"></i>{" "}
                         {/* Icono para Eliminar */}

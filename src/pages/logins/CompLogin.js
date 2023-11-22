@@ -15,7 +15,15 @@ const CompLogin = () => {
             <CompLoginForm />
           </div>
         </div>
-        <div className="col-md-8" style={{ height: '100vh', margin: 0, padding: 0, backgroundColor: "#008D31" }}>
+        <div
+          className="col-md-8"
+          style={{
+            height: "100vh",
+            margin: 0,
+            padding: 0,
+            backgroundColor: "#008D31",
+          }}
+        >
           {/* <img src={imagen} alt="logo" style={{ width: '100%', height: '100%' }} /> */}
         </div>
       </div>
