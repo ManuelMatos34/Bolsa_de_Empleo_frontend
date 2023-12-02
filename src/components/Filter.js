@@ -13,7 +13,7 @@ const Filter = ({
             <div className="card-body">
                 <div className="row">
                     <div className="col-12 col-md-4">
-                        <div className="form-group">
+                        <div className="input-group input-group-sm">
                             <input
                                 style={{ boxShadow: "none" }}
                                 type="text"
@@ -25,7 +25,7 @@ const Filter = ({
                         </div>
                     </div>
                     <div className="col-6 col-md-3">
-                        <div className="input-group">
+                        <div className="input-group input-group-sm">
                             <select
                                 style={{ boxShadow: "none" }}
                                 className="form-select"
@@ -41,7 +41,7 @@ const Filter = ({
                         </div>
                     </div>
                     <div className="col-6 col-md-3">
-                        <div className="input-group">
+                        <div className="input-group input-group-sm">
                             <select
                                 style={{ boxShadow: "none" }}
                                 className="form-select"

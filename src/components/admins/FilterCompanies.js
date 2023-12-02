@@ -11,7 +11,7 @@ const FilterCompanies = ({
             <div className="card-body">
                 <div className="row">
                     <div className="col-12 col-md-4">
-                        <div className="form-group">
+                        <div className="form-group input-group-sm">
                             <input
                                 value={search || ''}
                                 onChange={(e) => setSearch(e.target.value)}
@@ -23,7 +23,7 @@ const FilterCompanies = ({
                         </div>
                     </div>
                     <div className="col-6 col-md-3">
-                        <div className="input-group">
+                        <div className="input-group input-group-sm">
                             <select
                                 value={approve || ''}
                                 onChange={(e) => setApprove(e.target.value)}

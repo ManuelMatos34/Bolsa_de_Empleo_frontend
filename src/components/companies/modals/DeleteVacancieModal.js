@@ -1,28 +1,20 @@
 import React from "react";
-import { updateCompAprov } from "../../../services/services";
+import { deleteOfert } from "../../../services/services";
 
-const CancelCompModal = ({ selectData }) => {
-  const compName = selectData?.Comp_Name;
-  const compEmail = selectData?.Comp_EmailAddress;
-  const cancelComp = async () => {
+const DeleteVacancieModal = ({ selectedData }) => {
+  const deleVacan = async () => {
     try {
-      let getResponse = await updateCompAprov(
-        selectData.Comp_ID,
-        "0",
-        compName,
-        compEmail
-      );
-      let response = getResponse;
-      console.log(response);
+      await deleteOfert(selectedData?.Job_ID);
     } catch (error) {
       // Manejo de errores
-      console.error("error", error);
+      console.error("Error:", error);
     }
   };
+
   return (
     <div
       className="modal fade"
-      id="staticBackdropCancelComp"
+      id="staticBackdropDeleteOf"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
@@ -30,11 +22,11 @@ const CancelCompModal = ({ selectData }) => {
       aria-hidden="true"
     >
       <div className="modal-dialog">
-        <form onSubmit={cancelComp}>
+        <form onSubmit={deleVacan}>
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                Denegar Empresa
+                Eliminar oferta
               </h1>
               <button
                 type="button"
@@ -44,18 +36,26 @@ const CancelCompModal = ({ selectData }) => {
               ></button>
             </div>
             <div className="modal-body">
-              Estas seguro que deseas denegar el acceso a esta empresa?
+              Estas seguro que deseas eliminar esta oferta? la oferta ya no
+              saldra en la lista de ofertas de los postulantes, pero los
+              postulantes que ya se postularon a esta oferta seguiran en la
+              lista de postulantes.
             </div>
             <div className="modal-footer">
               <button
+                style={{ backgroundColor: "#0C4770", border: "none" }}
                 type="button"
                 className="btn btn-secondary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Cerrar
               </button>
-              <button type="submit" className="btn btn-danger btn-sm">
-                Confirmar
+              <button
+                style={{ border: "none" }}
+                type="submit"
+                className="btn btn-danger btn-sm"
+              >
+                Eliminar
               </button>
             </div>
           </div>
@@ -65,4 +65,4 @@ const CancelCompModal = ({ selectData }) => {
   );
 };
 
-export default CancelCompModal;
+export default DeleteVacancieModal;

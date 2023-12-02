@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import {
   setIsAuthenticatedCookies,
   setUserCookies,
+  setUserRolCookies,
 } from "../../helpers/Helpers";
 
 const UserLoginForm = () => {
@@ -35,8 +36,10 @@ const UserLoginForm = () => {
 
       if (student.data[0]?.Std_ID) {
         setUserAndNavigate(student.data, "/homestudents");
+        setUserRolCookies("Común");
       } else if (admin.data[0]?.User_Name) {
         setUserAndNavigate(admin.data, "/homeadmins");
+        setUserRolCookies("Admin");
       } else {
         messageAlert("Error", "No ha introducido los datos correctos", "error");
       }
@@ -58,7 +61,7 @@ const UserLoginForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="user" className="form-label">
-            Matricula
+            Matricula/Correo
           </label>
           <input
             type="text"

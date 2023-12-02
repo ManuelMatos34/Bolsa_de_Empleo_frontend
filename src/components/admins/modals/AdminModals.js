@@ -6,7 +6,7 @@ import CancelCompModal from "./CancelCompModal";
 import AcceptCompModal from "./AcceptCompModal";
 import ConfigAdminModal from "./ConfigAdminModal";
 
-const AdminModals = ({ selected, data }) => {
+const AdminModals = ({ selected, data, selectData }) => {
   const [formData, setFormData] = useState({
     Ca_Description: "",
     Skill: "",
@@ -60,8 +60,8 @@ const AdminModals = ({ selected, data }) => {
       <AddSkillsModal handleChange={handleChange} formData={formData} />
       <DeleteSkillModal formData={formData} />
       <EditSkillModal formData={formData} handleChange={handleChange} />
-      <CancelCompModal />
-      <AcceptCompModal />
+      <CancelCompModal selectData={selectData}/>
+      <AcceptCompModal selectData={selectData}/>
       <ConfigAdminModal formDataAdmin={formDataAdmin} handleChangeAdmin={handleChangeAdmin}/>
     </div>
   );

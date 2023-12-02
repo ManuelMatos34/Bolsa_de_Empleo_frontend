@@ -1,31 +1,122 @@
-import React from 'react'
-import photoNull from '../../assets/img/no image.png';
-import AdminModals from './modals/AdminModals';
+import React, { useEffect, useState } from "react";
+import photoNull from "../../assets/img/no image.png";
+import AdminModals from "./modals/AdminModals";
+import { convertImage } from "../../helpers/Helpers";
+import { getImgEmp } from "../../services/services";
 const CompaniesDescription = ({ dataDescription }) => {
-    return (
-        <div className="card m-1">
-            <AdminModals />
-            <img src={photoNull} alt="Imagen de la empresa" className="card-img-top" style={{ position: 'absolute', top: '10px', right: '10px', width: '200px' }} />
-            <div className="card-body">
-                <h4 className="card-title m-1 icon-color">{dataDescription.Comp_Name}</h4>
-                <h6 className="card-subtitle mb-2 text-muted m-1">RNC: {dataDescription.Comp_ID}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Teléfono: {dataDescription.Comp_Telephone}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Calle 1: {dataDescription.Comp_FirstStreet}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Calle 2: {dataDescription.Comp_SecondStreet}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Ciudad: {dataDescription.Comp_City}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Estado: {dataDescription.Comp_State}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Código Postal: {dataDescription.Comp_PostalCode}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Contacto Principal: {dataDescription.Comp_KeyContact}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Teléfono del Contacto: {dataDescription.Comp_KYTelephone}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Correo Electrónico: {dataDescription.Comp_EmailAddress}</h6>
-                <h6 className="card-subtitle mb-2 text-muted m-1">Sitio Web: {dataDescription.Comp_Website}</h6>
-                <div>
-                    <button data-bs-toggle="modal" data-bs-target="#staticBackdropAcceptComp" style={{ backgroundColor: "#0C4770", border: "none" }} type="button" className="btn btn-success m-1 mb-0 btn-sm">Aceptar</button>
-                    <button data-bs-toggle="modal" data-bs-target="#staticBackdropCancelComp" type="button" className="btn btn-danger m-1 mb-0 btn-sm">Denegar</button>
-                </div>
-            </div>
-        </div>
-    )
-}
+  const [img, setImg] = useState(null);
 
-export default CompaniesDescription
+  useEffect(() => {
+    const getIMG = async () => {
+      try {
+        const response = await getImgEmp(dataDescription.Comp_ID);
+        // console.log(response.data.Img);
+        if (response && response.data) {
+          if (response.data.Img === undefined) {
+            setImg(false);
+          }
+          if (response.data.Img) {
+            setImg(convertImage(response.data.Img.data));
+          }
+        } else {
+          setImg(null);
+        }
+      } catch (error) {
+        // Manejo de errores
+        console.error("error", error);
+      }
+    };
+    getIMG();
+  }, [dataDescription.Comp_ID]);
+
+  return (
+    <>
+      <div className="card mt-1 style-title">
+        <h6 className="m-2">Descripción</h6>
+      </div>
+      <div className="card m-1">
+        <AdminModals selectData={dataDescription} />
+        {
+          <img
+            className="card-img-top"
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              width: "200px",
+            }}
+            src={img ? `data:image/png;base64,${img}` : photoNull}
+            alt="unphu"
+          />
+        }
+        <div className="card-body">
+          <h4 className="card-title icon-color">{dataDescription.Comp_Name}</h4>
+          <p className="mb-1 text-muted">RNC: {dataDescription.Comp_ID}</p>
+          <p className="mb-1 text-muted">
+            Teléfono: {dataDescription.Comp_Telephone}
+          </p>
+          <p className="mb-1 text-muted">
+            Direccion 1: {dataDescription.Comp_FirstStreet}
+          </p>
+          <p className="mb-1 text-muted">
+            Direccion 2: {dataDescription.Comp_SecondStreet}
+          </p>
+          <p className="mb-1 text-muted">Ciudad: {dataDescription.Comp_City}</p>
+          <p className="mb-1 text-muted">
+            Estado: {dataDescription.Comp_State}
+          </p>
+          <p className="mb-1 text-muted">
+            Código Postal: {dataDescription.Comp_PostalCode}
+          </p>
+          <p className="mb-1 text-muted">
+            Contacto Principal: {dataDescription.Comp_KeyContact}
+          </p>
+          <p className="mb-1 text-muted">
+            Teléfono del Contacto: {dataDescription.Comp_KYTelephone}
+          </p>
+          <p className="mb-1 text-muted">
+            Correo Electrónico:{" "}
+            <a href={`mailto:${dataDescription.Comp_EmailAddress}`}>
+              {dataDescription.Comp_EmailAddress}
+            </a>
+          </p>
+          <p className="mb-1 text-muted">
+            Sitio Web:{" "}
+            <a
+              href={dataDescription.Comp_Website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {dataDescription.Comp_Website}
+            </a>
+          </p>
+          <p className="mb-1 text-muted">
+            Acerca de la empresa: {dataDescription.Comp_Description}
+          </p>
+          <div>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdropAcceptComp"
+              style={{ backgroundColor: "#0C4770", border: "none" }}
+              type="button"
+              className="btn btn-success m-1 mb-0 btn-sm"
+            >
+              Aceptar
+            </button>
+            <button
+              style={{ border: "none" }}
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdropCancelComp"
+              type="button"
+              className="btn btn-danger m-1 mb-0 btn-sm"
+            >
+              Denegar
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default CompaniesDescription;

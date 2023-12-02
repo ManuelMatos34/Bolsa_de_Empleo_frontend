@@ -1,28 +1,24 @@
 import React from "react";
-import { updateCompAprov } from "../../../services/services";
+import { deletePostulant } from "../../../services/services";
 
-const CancelCompModal = ({ selectData }) => {
-  const compName = selectData?.Comp_Name;
-  const compEmail = selectData?.Comp_EmailAddress;
-  const cancelComp = async () => {
+const DeletePostulant = ({ postulationID, postulantData }) => {
+  const nameUser =
+    postulantData?.Std_FirstName + " " + postulantData?.Std_LastName;
+
+  const emailUser = postulantData?.Std_PersonalEmail;
+
+  const handleUpdateState = async () => {
     try {
-      let getResponse = await updateCompAprov(
-        selectData.Comp_ID,
-        "0",
-        compName,
-        compEmail
-      );
-      let response = getResponse;
-      console.log(response);
+      await deletePostulant(postulationID, nameUser, emailUser);
     } catch (error) {
-      // Manejo de errores
+      // Error handling
       console.error("error", error);
     }
   };
   return (
     <div
       className="modal fade"
-      id="staticBackdropCancelComp"
+      id="staticBackdropDeletePostulant"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
@@ -30,11 +26,11 @@ const CancelCompModal = ({ selectData }) => {
       aria-hidden="true"
     >
       <div className="modal-dialog">
-        <form onSubmit={cancelComp}>
+        <form onSubmit={handleUpdateState}>
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                Denegar Empresa
+                Rechazar postulante
               </h1>
               <button
                 type="button"
@@ -44,17 +40,24 @@ const CancelCompModal = ({ selectData }) => {
               ></button>
             </div>
             <div className="modal-body">
-              Estas seguro que deseas denegar el acceso a esta empresa?
+              Estas seguro que deseas rechazar a este postulante? al hacer esto
+              el estudiante sera notificado de que no fue tomado en cuenta para
+              la vacante.
             </div>
             <div className="modal-footer">
               <button
+                style={{ backgroundColor: "#0C4770", border: "none" }}
                 type="button"
                 className="btn btn-secondary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Cerrar
               </button>
-              <button type="submit" className="btn btn-danger btn-sm">
+              <button
+                style={{ border: "none" }}
+                type="submit"
+                className="btn btn-danger btn-sm"
+              >
                 Confirmar
               </button>
             </div>
@@ -65,4 +68,4 @@ const CancelCompModal = ({ selectData }) => {
   );
 };
 
-export default CancelCompModal;
+export default DeletePostulant;

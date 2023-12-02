@@ -40,10 +40,8 @@ const Applications = () => {
   return (
     <div className="row">
       <div className="col-md-3">
-        <div className="card m-1">
-          <div className="card-body">
-            <h6 className="card-title m-1">Mis Aplicaciones</h6>
-          </div>
+        <div className="card m-1 style-title">
+          <h6 className="m-2">Mis postulaciones</h6>
         </div>
         {data ? (
           <div className="overflow-auto" style={{ maxHeight: "80vh" }}>
@@ -60,10 +58,7 @@ const Applications = () => {
                     <p className="card-subtitle text-muted">
                       {item.Job_Modality} · {item.Job_ContractType}
                     </p>
-                    <p style={{ fontSize: "12px" }}>
-                      Santo Domingo de Guzmán, Distrito Nacional, República
-                      Dominicana{" "}
-                    </p>
+                    <p style={{ fontSize: "12px" }}>{item.Job_Location} </p>
                   </div>
                   <button
                     onClick={() => handleToDescription(item.Job_ID)}
@@ -97,17 +92,22 @@ const Applications = () => {
         {appDescription ? (
           <ApplicationDescription dataDescription={appDescription} />
         ) : (
-          <div className="card m-1">
-            <div className="card-body">
-              <div className="m-2" style={{ display: "inline" }}>
-                Haz click en{" "}
-                <p className="btn-style" style={{ display: "inline" }}>
-                  Más Info
-                </p>{" "}
-                para ver más a detalle la vacante.
+          <>
+            <div className="card m-1 style-title">
+              <h6 className="m-2">Descripción</h6>
+            </div>
+            <div className="card m-1">
+              <div className="card-body">
+                <div className="m-2" style={{ display: "inline" }}>
+                  Haz click en{" "}
+                  <p className="btn-style" style={{ display: "inline" }}>
+                    Más Info
+                  </p>{" "}
+                  para ver más a detalle la vacante.
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>

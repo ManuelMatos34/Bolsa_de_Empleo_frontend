@@ -17,7 +17,7 @@ const SideStudents = () => {
                 </li>
                 <li className="nav-item mt-3">
                     <Link className="nav-link d-flex align-items-center text-white" to="/jobvacancies">
-                        <i className="icon-second-color fas fa-briefcase align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Ofertas de Trabajo</p>
+                        <i className="icon-second-color fas fa-briefcase align-self-center"></i>&nbsp; <p className="mb-0 ml-2">Ofertas de Empleo</p>
                     </Link>
                 </li>
             </ul>

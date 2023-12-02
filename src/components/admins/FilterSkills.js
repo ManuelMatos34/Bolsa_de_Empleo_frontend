@@ -13,13 +13,13 @@ const FilterSkills = ({
       <div className="card-body">
         <div className="row">
           <div className="col-12 col-md-4">
-            <div className="form-group">
+            <div className="form-group input-group-sm">
               <input
                 style={{ boxShadow: "none" }}
                 type="text"
                 className="form-control"
                 placeholder="Buscar..."
-                value={skillNameFilter || ''}
+                value={skillNameFilter || ""}
                 onChange={(e) => setSkillNameFilter(e.target.value)}
               />
             </div>
@@ -48,11 +48,13 @@ const FilterSkills = ({
             </div>
           </div> */}
           <div className="col-6 col-md-4">
-            <div className="input-group">
+            <div className="input-group input-group-sm">
               <select
-                value={carFilter || ''}
+                value={carFilter || ""}
                 onChange={(e) => setCarFilter(e.target.value)}
-                style={{ boxShadow: "none" }} className="form-select">
+                style={{ boxShadow: "none" }}
+                className="form-select"
+              >
                 <option value="">Carrera</option>
                 <option>Dr. en Medicina</option>
                 <option>Dr. en Odontología</option>
@@ -61,9 +63,15 @@ const FilterSkills = ({
                 <option>Lic. en Psicología Escolar</option>
                 <option>Lic. en Psicologia Industrial</option>
                 <option>Lic. en Educación, mención Educación Especial</option>
-                <option>Lic. en Matemática Orientada a la Educación Secundaria</option>
-                <option>Lic. en Química Orientada a la Educación Secundaria</option>
-                <option>Lic. en Física Orientada a la Educación Secundaria</option>
+                <option>
+                  Lic. en Matemática Orientada a la Educación Secundaria
+                </option>
+                <option>
+                  Lic. en Química Orientada a la Educación Secundaria
+                </option>
+                <option>
+                  Lic. en Física Orientada a la Educación Secundaria
+                </option>
                 <option>Lic. en Educación Física</option>
                 <option>Arquitectura y Urbanismo</option>
                 <option>Lic. en Diseño de Interiores</option>
@@ -91,6 +99,17 @@ const FilterSkills = ({
                 <i style={{ color: "white" }} className="fas fa-times m-1"></i>
               </button>
             </div>
+          </div>
+          <div className="col-6 col-md-4">
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdropAddSkills"
+              style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}
+              className="btn btn-outline-secondary btn-sm"
+              type="button"
+            >
+              <i style={{ color: "white" }} className="fas fa-plus"></i>{" "}
+            </button>
           </div>
         </div>
       </div>

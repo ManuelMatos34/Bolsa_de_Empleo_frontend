@@ -1,18 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import { setImgAdmin, updateAdmin } from "../../../services/services";
 
 const ConfigAdminModal = ({ handleChangeAdmin, formDataAdmin }) => {
+  const [dataImg, setDataImg] = useState(null);
+
+  const update = async () => {
+    try {
+      if (dataImg !== null) {
+        const id = formDataAdmin.User_ID;
+        const img = dataImg;
+        await setImgAdmin(id, img);
+      }
+      let getResponse = await updateAdmin(
+        formDataAdmin.User_ID,
+        formDataAdmin.User_Phone,
+        formDataAdmin.User_Email
+      );
+      let response = getResponse;
+      console.log(response);
+    } catch (error) {
+      // Manejo de errores
+      console.error("error", error);
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setDataImg(file);
+  };
+
   const formFields = [
     {
       label: "Correo",
       id: "User_Email",
       type: "text",
       value: formDataAdmin.User_Email,
+      maxLength: "30",
     },
     {
       label: "Telefono",
       id: "User_Phone",
       type: "text",
       value: formDataAdmin.User_Phone,
+      pattern: "[0-9]{10}",
+      maxLength: "10",
     },
     { label: "Foto de perfil", id: "photo", type: "file" },
   ];
@@ -39,7 +70,7 @@ const ConfigAdminModal = ({ handleChangeAdmin, formDataAdmin }) => {
               aria-label="Close"
             ></button>
           </div>
-          <form>
+          <form onSubmit={update}>
             <div className="modal-body">
               {formFields.map((field) => (
                 <div className="mb-3" key={field.id}>
@@ -54,6 +85,8 @@ const ConfigAdminModal = ({ handleChangeAdmin, formDataAdmin }) => {
                       style={{ boxShadow: "none" }}
                       value={field.value}
                       onChange={(e) => handleChangeAdmin(e)}
+                      maxLength={field.maxLength}
+                      pattern={field.pattern}
                     />
                   ) : (
                     <input
@@ -61,6 +94,7 @@ const ConfigAdminModal = ({ handleChangeAdmin, formDataAdmin }) => {
                       id={field.id}
                       className="form-control"
                       accept=".png, .jpg, .jpeg"
+                      onChange={(e) => handleFileChange(e)}
                     />
                   )}
                 </div>

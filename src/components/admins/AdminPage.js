@@ -42,7 +42,7 @@ const AdminPage = () => {
                                 <h5 className="card-title">Empresas sin confirmar</h5>
                                 <div className="h2 font-weight-bold">{dataComp?.Pendientes}</div>
                                 <p className="card-text">Empresas que estan a la espera del
-                                    administrador poder ingresar al sistema.
+                                    administrador para ingresar al sistema.
                                 </p>
                                 <Link style={{ backgroundColor: "#0C4770", border: "none" }} className="btn btn-primary btn-sm" to="/companiesadmin">
                                     Administrar Empresas
@@ -58,7 +58,7 @@ const AdminPage = () => {
                     &nbsp; Estado
                 </h6>
             </div>
-            <div className="col-md-2 mt-1">
+            {/* <div className="col-md-2 mt-1">
                 <div className="card shadow card-style">
                     <div className="card-body">
                         <div className="row align-items-center">
@@ -72,7 +72,7 @@ const AdminPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="col-md-2 mt-1">
                 <div className="card shadow card-style">
                     <div className="card-body">

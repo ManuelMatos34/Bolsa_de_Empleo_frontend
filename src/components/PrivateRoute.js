@@ -1,14 +1,17 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { getIsAuthenticatedCookies } from "../helpers/Helpers";
+import { getIsAuthenticatedCookies, getUserRol } from "../helpers/Helpers";
 
-export const PrivateRoute = ({ redirectTo = "/", children }) => {
-    const authedUser = getIsAuthenticatedCookies();
+export const PrivateRoute = ({ routeRol, children }) => {
+  const authedUser = getIsAuthenticatedCookies();
+  const rol = getUserRol();
 
-    if (authedUser === false) {
-        return <Navigate to={redirectTo} replace />;
-    }
+  if (authedUser === false) {
+    return <Navigate to={"/"} />;
+  }
 
-    return children ? children : <Outlet />;
+  if (!routeRol.includes(rol)) {
+    return <Navigate to={"/unauthorized"} />;
+  }
+
+  return children ? children : <Outlet />;
 };
-
-

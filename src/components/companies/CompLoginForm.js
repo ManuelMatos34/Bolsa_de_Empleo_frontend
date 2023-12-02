@@ -5,6 +5,7 @@ import { messageAlert } from "../../helpers/Alerts";
 import {
   setIsAuthenticatedCookies,
   setUserCookies,
+  setUserRolCookies,
 } from "../../helpers/Helpers";
 
 const CompLoginForm = () => {
@@ -37,6 +38,7 @@ const CompLoginForm = () => {
       }
 
       setUserCookies(response.data);
+      setUserRolCookies("Empresa");
       setIsAuthenticatedCookies(true);
       navigate("/homepage");
 

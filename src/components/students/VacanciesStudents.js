@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import VacancieDescription from "./VacancieDescription";
+import { calculateTimePassed } from "../../helpers/Helpers";
 
 const VacanciesStudents = ({ data }) => {
   const [dataDescription, setDataDescription] = useState(null);
@@ -16,40 +17,44 @@ const VacanciesStudents = ({ data }) => {
 
   return (
     <div className="row">
-      <div
-        className="col-md-3 col-12 overflow-auto"
-        style={{ maxHeight: "75vh" }}
-      >
+      <div className="col-md-3">
+        <div className="card m-1 style-title">
+          <h6 className="m-2">Ofertas de empleo</h6>
+        </div>
         {data ? (
-          data.map((item) => (
-            <div key={item.Job_ID} className="card m-1 card-style">
-              <div className="card-body">
-                <h6 className="card-title">
-                  <b>{item.Job_Title}</b>
-                </h6>
-                <div>
-                  <p className="card-subtitle text-muted">
-                    <b>{item.Comp_Name}</b>
-                  </p>
-                  <p className="card-subtitle text-muted">
-                    {item.Job_Modality} · {item.Job_ContractType}
-                  </p>
-                  <p style={{ fontSize: "12px" }}>
-                    Santo Domingo de Guzmán, Distrito Nacional, República
-                    Dominicana{" "}
-                  </p>
+          <div className="overflow-auto" style={{ maxHeight: "70vh" }}>
+            {data.map((item) => (
+              <div key={item.Job_ID} className="card m-1 card-style">
+                <div className="card-body">
+                  <h6 className="card-title">
+                    <b>{item.Job_Title}</b>
+                  </h6>
+                  <div>
+                    <p className="card-subtitle text-muted">
+                      <b>{item.Comp_Name}</b>
+                    </p>
+                    <p className="card-subtitle text-muted">
+                      {item.Job_Modality} · {item.Job_ContractType}
+                    </p>
+                    <p style={{ fontSize: "12px" }}>{item.Job_Location} </p>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-end mt-auto">
+                    <button
+                      onClick={() => handleToDescription(item.Job_ID)}
+                      style={{ backgroundColor: "#0C4770", border: "none" }}
+                      type="button"
+                      className="btn btn-primary btn-sm"
+                    >
+                      Más Info
+                    </button>
+                    <div className="text-muted small">
+                      {calculateTimePassed(item.Job_CreationDate)}
+                    </div>
+                  </div>
                 </div>
-                <button
-                  onClick={() => handleToDescription(item.Job_ID)}
-                  style={{ backgroundColor: "#0C4770", border: "none" }}
-                  type="button"
-                  className="btn btn-primary btn-sm"
-                >
-                  Más Info
-                </button>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         ) : (
           <div className="card m-1">
             <div className="card-body">
@@ -70,14 +75,19 @@ const VacanciesStudents = ({ data }) => {
         {dataDescription ? (
           <VacancieDescription dataDescription={dataDescription} />
         ) : (
-          <div className="card m-1">
-            <div className="card-body">
-              <div className="m-2" style={{ display: "inline" }}>
-                Haz click en{" "}
-                <p className="btn-style" style={{ display: "inline" }}>
-                  Más Info
-                </p>{" "}
-                para ver más a detalle la vacante.
+          <div>
+            <div className="card m-1 style-title">
+              <h6 className="m-2">Descripción</h6>
+            </div>
+            <div className="card m-1">
+              <div className="card-body">
+                <div className="m-2" style={{ display: "inline" }}>
+                  Haz click en{" "}
+                  <p className="btn-style" style={{ display: "inline" }}>
+                    Más Info
+                  </p>{" "}
+                  para ver más a detalle la vacante.
+                </div>
               </div>
             </div>
           </div>

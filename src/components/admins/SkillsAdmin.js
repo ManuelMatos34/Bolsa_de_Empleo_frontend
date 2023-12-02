@@ -1,42 +1,10 @@
-import React, { useState } from "react";
-import AdminModals from "./modals/AdminModals";
-import { getSkillById } from "../../services/services";
+import React from "react";
 
-const SkillsAdmin = ({ data }) => {
-  const [selected, setSelected] = useState(null);
-
-  const getSkill = async (id) => {
-    try {
-      let getResponse = await getSkillById(id);
-      let response = getResponse.data;
-      setSelected(response);
-    } catch (error) {
-      // Manejo de errores
-      setSelected(null);
-    }
-  };
-
+const SkillsAdmin = ({ data, getSkill }) => {
   return (
     <div>
-      <AdminModals data={data} selected={selected}/>
       <div className="card mb-5 p-4 pt-1">
-        <div
-          style={{ border: "none" }}
-          className="card-header bg-white d-flex justify-content-between align-items-center"
-        >
-          <h5 className="m-1 mt-0">Habilidades</h5>
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdropAddSkills"
-            style={{ backgroundColor: "#0C4770", borderColor: "#0C4770" }}
-            className="btn btn-outline-secondary"
-            type="button"
-          >
-            <i style={{ color: "white" }} className="fas fa-plus"></i>{" "}
-            {/* Icono para Agregar */}
-          </button>
-        </div>
-        <div className="card-body p-0 m-0">
+        <div className="card-body p-0 m-0 mt-3">
           <table className="table table-sm text-center">
             <thead>
               <tr>
