@@ -76,8 +76,8 @@ const CompaniesDescription = ({ dataDescription }) => {
           </p>
           <p className="mb-1 text-muted">
             Correo Electrónico:{" "}
-            <a href={`mailto:${dataDescription.Comp_EmailAddress}`}>
-              {dataDescription.Comp_EmailAddress}
+            <a href={`mailto:${dataDescription.User_Email}`}>
+              {dataDescription.User_Email}
             </a>
           </p>
           <p className="mb-1 text-muted">

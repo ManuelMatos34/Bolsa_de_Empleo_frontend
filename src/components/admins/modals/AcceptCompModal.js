@@ -2,8 +2,9 @@ import React from "react";
 import { updateCompAprov } from "../../../services/services";
 
 const AcceptCompModal = ({ selectData }) => {
+  console.log(selectData);
   const compName = selectData?.Comp_Name;
-  const compEmail = selectData?.Comp_EmailAddress;
+  const compEmail = selectData?.User_Email;
 
   const acceptComp = async () => {
     try {

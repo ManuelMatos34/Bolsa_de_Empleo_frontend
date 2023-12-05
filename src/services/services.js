@@ -411,3 +411,39 @@ export const deletePostulant = (id, nameUser, emailUser) => {
     emailUser,
   });
 };
+
+export const postComp = (
+  Comp_ID,
+  User_Email,
+  User_Password,
+  Comp_Name,
+  Comp_Description,
+  Comp_Telephone,
+  Comp_FirstStreet,
+  Comp_SecondStreet,
+  Comp_City,
+  Comp_State,
+  Comp_PostalCode,
+  Comp_KeyContact,
+  Comp_KYTelephone,
+  Comp_EmailAddress,
+  Comp_Website
+) => {
+  return axios.post("http://localhost:4000/empresas", {
+    Comp_ID,
+    User_Email,
+    User_Password,
+    Comp_Name,
+    Comp_Description,
+    Comp_Telephone,
+    Comp_FirstStreet,
+    Comp_SecondStreet,
+    Comp_City,
+    Comp_State,
+    Comp_PostalCode,
+    Comp_KeyContact,
+    Comp_KYTelephone,
+    Comp_EmailAddress,
+    Comp_Website,
+  });
+};

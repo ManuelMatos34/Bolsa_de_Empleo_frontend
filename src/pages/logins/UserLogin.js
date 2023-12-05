@@ -1,15 +1,19 @@
 import React from "react";
 import logo from "../../assets/img/image.png";
 import UserLoginForm from "../../components/students/UserLoginForm";
+import imagen from "../../assets/img/pexels-min-an-775998.jpg";
 
 const UserLogin = () => {
   return (
     <div
       style={{
-        backgroundColor: "#008D31",
-        height: "100vh",
+        backgroundImage: `url(${imagen})`,
+        height: "100%",
         width: "100%",
         position: "fixed",
+        backgroundRepeat: "no-repeat", // Add background-repeat property
+        overflow: "hidden", // Add overflow property
+        backgroundSize: "cover", // Add background-size property
       }}
     >
       <div className="container mt-5">
